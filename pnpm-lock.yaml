@@ -3,6 +3,7 @@ dependencies:
   '@chakra-ui/react': 1.1.4_a830ed6b7e85826dda8e4750b19bdf15
   '@emotion/react': 11.1.4_react@17.0.1
   '@emotion/styled': 11.0.0_69dd99bc46b1e036f631d5b040f38d6a
+  '@hookform/resolvers': 1.3.2_react-hook-form@6.14.1
   faunadb: 4.0.0
   framer-motion: 2.9.5_react-dom@17.0.1+react@17.0.1
   next: 10.0.5_react-dom@17.0.1+react@17.0.1
@@ -10,6 +11,7 @@ dependencies:
   react-dom: 17.0.1_react@17.0.1
   react-hook-form: 6.14.1_react@17.0.1
   swr: 0.4.0_react@17.0.1
+  yup: 0.32.8
 lockfileVersion: 5.2
 packages:
   /@ampproject/toolbox-core/2.7.4:
@@ -998,6 +1000,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-CAEbWH7OIur6jEOzaai83jq3FmKmv4PmX1JYfs9IrYcGEVI/lyL1EXJGCj7eFVJ0bg5QR8LMxBlEtA+xKiLpFw==
+  /@hookform/resolvers/1.3.2_react-hook-form@6.14.1:
+    dependencies:
+      react-hook-form: 6.14.1_react@17.0.1
+    dev: false
+    peerDependencies:
+      react-hook-form: '>=6.6.0'
+    resolution:
+      integrity: sha512-OumtsPsGqBcsMXGUkM7IGDO55+ZmruF3u3D7eDYDK4HpYQcp4Q5QeqQtQr/BLD1wgTiB4YLvcboRXrITuJOwdA==
   /@next/env/10.0.5:
     dev: false
     resolution:
@@ -2075,7 +2085,7 @@ packages:
       cssesc: 3.0.0
       icss-utils: 4.1.1
       loader-utils: 2.0.0
-      postcss: 7.0.32
+      postcss: 7.0.35
       postcss-modules-extract-imports: 2.0.0
       postcss-modules-local-by-default: 3.0.3
       postcss-modules-scope: 2.2.0
@@ -2114,14 +2124,14 @@ packages:
   /cssnano-preset-simple/1.2.1:
     dependencies:
       caniuse-lite: 1.0.30001174
-      postcss: 7.0.32
+      postcss: 7.0.35
     dev: false
     resolution:
       integrity: sha512-B2KahOIFTV6dw5Ioy9jHshTh/vAYNnUB2enyWRgnAEg3oJBjI/035ExpePaMqS2SwpbH7gCgvQqwpMBH6hTJSw==
   /cssnano-simple/1.2.1:
     dependencies:
       cssnano-preset-simple: 1.2.1
-      postcss: 7.0.32
+      postcss: 7.0.35
     dev: false
     resolution:
       integrity: sha512-9vOyjw8Dj/T12kIOnXPZ5VnEIo6F3YMaIn0wqJXmn277R58cWpI3AvtdlCBtohX7VAUNYcyk2d0dKcXXkb5I6Q==
@@ -2948,7 +2958,7 @@ packages:
       integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
   /icss-utils/4.1.1:
     dependencies:
-      postcss: 7.0.32
+      postcss: 7.0.35
     dev: false
     engines:
       node: '>= 6'
@@ -3330,6 +3340,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==
+  /lodash-es/4.17.20:
+    dev: false
+    resolution:
+      integrity: sha512-JD1COMZsq8maT6mnuz1UMV0jvYD0E0aUsSOdrr1/nAG3dhqQXwRRgeW0cSqH1U43INKcqxaiVIQNOUDld7gRDA==
   /lodash.mergewith/4.6.2:
     dev: false
     resolution:
@@ -3544,6 +3558,10 @@ packages:
     optional: true
     resolution:
       integrity: sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
+  /nanoclone/0.2.1:
+    dev: false
+    resolution:
+      integrity: sha512-wynEP02LmIbLpcYw8uBKpcfF6dmg2vcpKqxeH5UcoKEYdExslsdUA4ugFauuaeYdTB76ez6gJW8XAZ6CgkXYxA==
   /nanoid/3.1.20:
     dev: false
     engines:
@@ -3995,7 +4013,7 @@ packages:
       integrity: sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
   /postcss-modules-extract-imports/2.0.0:
     dependencies:
-      postcss: 7.0.32
+      postcss: 7.0.35
     dev: false
     engines:
       node: '>= 6'
@@ -4004,7 +4022,7 @@ packages:
   /postcss-modules-local-by-default/3.0.3:
     dependencies:
       icss-utils: 4.1.1
-      postcss: 7.0.32
+      postcss: 7.0.35
       postcss-selector-parser: 6.0.4
       postcss-value-parser: 4.1.0
     dev: false
@@ -4014,7 +4032,7 @@ packages:
       integrity: sha512-e3xDq+LotiGesympRlKNgaJ0PCzoUIdpH0dj47iWAui/kyTgh3CiAr1qP54uodmJhl6p9rN6BoNcdEDVJx9RDw==
   /postcss-modules-scope/2.2.0:
     dependencies:
-      postcss: 7.0.32
+      postcss: 7.0.35
       postcss-selector-parser: 6.0.4
     dev: false
     engines:
@@ -4024,13 +4042,13 @@ packages:
   /postcss-modules-values/3.0.0:
     dependencies:
       icss-utils: 4.1.1
-      postcss: 7.0.32
+      postcss: 7.0.35
     dev: false
     resolution:
       integrity: sha512-1//E5jCBrZ9DmRX+zCtmQtRSV6PV42Ix7Bzj9GbwJceduuf7IqP8MgeTXuRDHOWj2m0VzZD5+roFWDuU8RQjcg==
   /postcss-safe-parser/4.0.2:
     dependencies:
-      postcss: 7.0.32
+      postcss: 7.0.35
     dev: false
     engines:
       node: '>=6.0.0'
@@ -4071,6 +4089,16 @@ packages:
       node: '>=6.0.0'
     resolution:
       integrity: sha512-03eXong5NLnNCD05xscnGKGDZ98CyzoqPSMjOe6SuoQY7Z2hIj0Ld1g/O/UQRuOle2aRtiIRDg9tDcTGAkLfKw==
+  /postcss/7.0.35:
+    dependencies:
+      chalk: 2.4.2
+      source-map: 0.6.1
+      supports-color: 6.1.0
+    dev: false
+    engines:
+      node: '>=6.0.0'
+    resolution:
+      integrity: sha512-3QT8bBJeX/S5zKTTjTCIjRF3If4avAT6kqxcASlTWEtAFCb9NH0OUxNDfgZSWdP5fJnBYCMEWkIFfWeugjzYMg==
   /postcss/8.1.7:
     dependencies:
       colorette: 1.2.1
@@ -4128,6 +4156,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
+  /property-expr/2.0.4:
+    dev: false
+    resolution:
+      integrity: sha512-sFPkHQjVKheDNnPvotjQmm3KD3uk1fWKUN7CrpdbwmUx3CrG3QiM8QpTSimvig5vTXmTvjz7+TDvXOI9+4rkcg==
   /prr/1.0.1:
     dev: false
     resolution:
@@ -5133,6 +5165,10 @@ packages:
       node: '>=0.6'
     resolution:
       integrity: sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
+  /toposort/2.0.2:
+    dev: false
+    resolution:
+      integrity: sha1-riF2gXXRVZ1IvvNUILL0li8JwzA=
   /tr46/1.0.1:
     dependencies:
       punycode: 2.1.1
@@ -5468,11 +5504,26 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+  /yup/0.32.8:
+    dependencies:
+      '@babel/runtime': 7.12.5
+      '@types/lodash': 4.14.167
+      lodash: 4.17.20
+      lodash-es: 4.17.20
+      nanoclone: 0.2.1
+      property-expr: 2.0.4
+      toposort: 2.0.2
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-SZulv5FIZ9d5H99EN5tRCRPXL0eyoYxWIP1AacCrjC9d4DfP13J1dROdKGfpfRHT3eQB6/ikBl5jG21smAfCkA==
 specifiers:
   '@chakra-ui/icons': ^1.0.0
   '@chakra-ui/react': ^1.0.0
   '@emotion/react': ^11.0.0
   '@emotion/styled': ^11.0.0
+  '@hookform/resolvers': ^1.3.2
   faunadb: ^4.0.0
   framer-motion: ^2.9.4
   next: latest
@@ -5480,3 +5531,4 @@ specifiers:
   react-dom: ^17.0.1
   react-hook-form: ^6.14.1
   swr: ^0.4.0
+  yup: ^0.32.8
