@@ -8,6 +8,7 @@ dependencies:
   next: 10.0.5_react-dom@17.0.1+react@17.0.1
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
+  react-hook-form: 6.14.1_react@17.0.1
   swr: 0.4.0_react@17.0.1
 lockfileVersion: 5.2
 packages:
@@ -2074,7 +2075,7 @@ packages:
       cssesc: 3.0.0
       icss-utils: 4.1.1
       loader-utils: 2.0.0
-      postcss: 7.0.35
+      postcss: 7.0.32
       postcss-modules-extract-imports: 2.0.0
       postcss-modules-local-by-default: 3.0.3
       postcss-modules-scope: 2.2.0
@@ -2113,14 +2114,14 @@ packages:
   /cssnano-preset-simple/1.2.1:
     dependencies:
       caniuse-lite: 1.0.30001174
-      postcss: 7.0.35
+      postcss: 7.0.32
     dev: false
     resolution:
       integrity: sha512-B2KahOIFTV6dw5Ioy9jHshTh/vAYNnUB2enyWRgnAEg3oJBjI/035ExpePaMqS2SwpbH7gCgvQqwpMBH6hTJSw==
   /cssnano-simple/1.2.1:
     dependencies:
       cssnano-preset-simple: 1.2.1
-      postcss: 7.0.35
+      postcss: 7.0.32
     dev: false
     resolution:
       integrity: sha512-9vOyjw8Dj/T12kIOnXPZ5VnEIo6F3YMaIn0wqJXmn277R58cWpI3AvtdlCBtohX7VAUNYcyk2d0dKcXXkb5I6Q==
@@ -2947,7 +2948,7 @@ packages:
       integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
   /icss-utils/4.1.1:
     dependencies:
-      postcss: 7.0.35
+      postcss: 7.0.32
     dev: false
     engines:
       node: '>= 6'
@@ -3994,7 +3995,7 @@ packages:
       integrity: sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
   /postcss-modules-extract-imports/2.0.0:
     dependencies:
-      postcss: 7.0.35
+      postcss: 7.0.32
     dev: false
     engines:
       node: '>= 6'
@@ -4003,7 +4004,7 @@ packages:
   /postcss-modules-local-by-default/3.0.3:
     dependencies:
       icss-utils: 4.1.1
-      postcss: 7.0.35
+      postcss: 7.0.32
       postcss-selector-parser: 6.0.4
       postcss-value-parser: 4.1.0
     dev: false
@@ -4013,7 +4014,7 @@ packages:
       integrity: sha512-e3xDq+LotiGesympRlKNgaJ0PCzoUIdpH0dj47iWAui/kyTgh3CiAr1qP54uodmJhl6p9rN6BoNcdEDVJx9RDw==
   /postcss-modules-scope/2.2.0:
     dependencies:
-      postcss: 7.0.35
+      postcss: 7.0.32
       postcss-selector-parser: 6.0.4
     dev: false
     engines:
@@ -4023,13 +4024,13 @@ packages:
   /postcss-modules-values/3.0.0:
     dependencies:
       icss-utils: 4.1.1
-      postcss: 7.0.35
+      postcss: 7.0.32
     dev: false
     resolution:
       integrity: sha512-1//E5jCBrZ9DmRX+zCtmQtRSV6PV42Ix7Bzj9GbwJceduuf7IqP8MgeTXuRDHOWj2m0VzZD5+roFWDuU8RQjcg==
   /postcss-safe-parser/4.0.2:
     dependencies:
-      postcss: 7.0.35
+      postcss: 7.0.32
     dev: false
     engines:
       node: '>=6.0.0'
@@ -4070,16 +4071,6 @@ packages:
       node: '>=6.0.0'
     resolution:
       integrity: sha512-03eXong5NLnNCD05xscnGKGDZ98CyzoqPSMjOe6SuoQY7Z2hIj0Ld1g/O/UQRuOle2aRtiIRDg9tDcTGAkLfKw==
-  /postcss/7.0.35:
-    dependencies:
-      chalk: 2.4.2
-      source-map: 0.6.1
-      supports-color: 6.1.0
-    dev: false
-    engines:
-      node: '>=6.0.0'
-    resolution:
-      integrity: sha512-3QT8bBJeX/S5zKTTjTCIjRF3If4avAT6kqxcASlTWEtAFCb9NH0OUxNDfgZSWdP5fJnBYCMEWkIFfWeugjzYMg==
   /postcss/8.1.7:
     dependencies:
       colorette: 1.2.1
@@ -4277,6 +4268,14 @@ packages:
       react: ^16.8.0
     resolution:
       integrity: sha512-c5ZP56KSpj9EAxzScTqQO7bQQNPltf/W1ZEBDqNDOV1XOIwvAyHX0O7db9ekiAtxyKgnqZjQlLppVg94fUeL9w==
+  /react-hook-form/6.14.1_react@17.0.1:
+    dependencies:
+      react: 17.0.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0 || ^17
+    resolution:
+      integrity: sha512-Bf2fWcL2F34hUUqrx1rpgZ8ZErQ4/DvrPs6Je+lUYL59km8PXIQqyCTz/NbggC1RQUj7rChSmTx6eFap+mCttw==
   /react-is/16.13.1:
     dev: false
     resolution:
@@ -5479,4 +5478,5 @@ specifiers:
   next: latest
   react: ^17.0.1
   react-dom: ^17.0.1
+  react-hook-form: ^6.14.1
   swr: ^0.4.0
