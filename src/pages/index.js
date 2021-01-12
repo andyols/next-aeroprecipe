@@ -1,7 +1,8 @@
 import { Heading, Stack, Text, Button } from '@chakra-ui/react'
 import { Layout } from '../components/Layout'
-import useSWR from 'swr'
 import { Recipes } from '../components/Recipes'
+import Link from 'next/link'
+import useSWR from 'swr'
 
 const Index = () => {
   const { data: recipes } = useSWR('/api/getRecipes')
@@ -10,9 +11,11 @@ const Index = () => {
       <Stack spacing={3}>
         <Heading>Welcome to AeroPrecipe!</Heading>
         <Text>Browse and create new Aeropress recipes</Text>
-        <Button size='sm' colorScheme='blue' maxW='200px'>
-          New Recipe
-        </Button>
+        <Link href='/create'>
+          <Button colorScheme='teal' maxW='200px'>
+            New Recipe
+          </Button>
+        </Link>
         {recipes && <Recipes recipes={recipes} />}
       </Stack>
     </Layout>
