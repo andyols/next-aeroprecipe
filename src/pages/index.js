@@ -10,7 +10,9 @@ const Index = () => {
       <Stack spacing={3}>
         <Heading>Welcome to AeroPrecipe!</Heading>
         <Text>Browse and create new Aeropress recipes</Text>
-        <Button>New Recipe</Button>
+        <Button size='sm' colorScheme='blue' maxW='200px'>
+          New Recipe
+        </Button>
         {recipes && <Recipes recipes={recipes} />}
       </Stack>
     </Layout>
