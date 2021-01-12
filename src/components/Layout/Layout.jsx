@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Flex, useColorMode } from '@chakra-ui/react'
 import { Header, Container, Footer } from '.'
 
-export const Layout = props => {
+const Layout = props => {
   const { colorMode } = useColorMode()
   const bgColor = { light: 'gray.50', dark: 'gray.800' }
   const color = { light: 'black', dark: 'gray.100' }
@@ -13,6 +13,7 @@ export const Layout = props => {
       h='100vh'
       bg={bgColor[colorMode]}
       color={color[colorMode]}
+      {...props}
     >
       <Head>
         <title>{props.title}</title>
@@ -21,7 +22,7 @@ export const Layout = props => {
 
       <Header borderColor={borderColor[colorMode]} />
 
-      <Container px={5} py={7} maxW={'700px'}>
+      <Container px={5} py={7} w={{ base: '100%', sm: '50%' }} maxW={'700px'}>
         {props.children}
       </Container>
 
@@ -31,3 +32,4 @@ export const Layout = props => {
     </Flex>
   )
 }
+export default Layout

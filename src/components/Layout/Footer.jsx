@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react'
 
-export const Footer = props => (
+const Footer = props => (
   <Flex
     w='100%'
     py={3}
@@ -10,3 +10,5 @@ export const Footer = props => (
     {...props}
   />
 )
+
+export default Footer

@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react'
 import Link from 'next/link'
 
-export const Header = props => {
+const Header = props => {
   const { colorMode, toggleColorMode } = useColorMode()
   const isDark = colorMode === 'dark'
   return (
@@ -29,3 +29,5 @@ export const Header = props => {
     </Flex>
   )
 }
+
+export default Header

@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react'
 
-export const Container = props => (
+const Container = props => (
   <Flex
     direction='column'
     grow='1'
@@ -10,3 +10,5 @@ export const Container = props => (
     {...props}
   />
 )
+
+export default Container
