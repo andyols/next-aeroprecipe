@@ -14,7 +14,7 @@ export const Header = props => {
     <Flex w='100%' py={3} px={6} borderBottom='1px' as='header' {...props}>
       <Link href='/'>
         <ChakraLink fontSize='xl' fontWeight='medium'>
-          Next.js + chakra
+          AeroPrecipe
         </ChakraLink>
       </Link>
       <Spacer />

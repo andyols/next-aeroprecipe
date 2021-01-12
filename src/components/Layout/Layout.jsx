@@ -21,7 +21,7 @@ export const Layout = props => {
 
       <Header borderColor={borderColor[colorMode]} />
 
-      <Container px={5} py={7}>
+      <Container px={5} py={7} maxW={'700px'}>
         {props.children}
       </Container>
 

@@ -1,30 +1,12 @@
-import {
-  Box,
-  Code,
-  Heading,
-  Stack,
-  Text,
-  Link as ChakraLink,
-} from '@chakra-ui/react'
-import Link from 'next/link'
+import { Heading, Stack, Text, Button } from '@chakra-ui/react'
 import { Layout } from '../components/Layout'
 
 const Index = () => (
-  <Layout title={'Home'}>
-    <Stack spacing={5}>
-      <Heading>Welcome to Next.js + Chakra Starter!</Heading>
-      <Box>
-        <Text>
-          We are currently at <Code>pages/index.js</Code> wrapped with{' '}
-          <Code>components/Layout.jsx</Code>
-        </Text>
-        <Text>
-          Try navigating to to another page by clicking{' '}
-          <Link href='/example'>
-            <ChakraLink fontWeight='bold'>here!</ChakraLink>
-          </Link>
-        </Text>
-      </Box>
+  <Layout title={'Welcome to AeroPrecipe'}>
+    <Stack spacing={3}>
+      <Heading>Welcome to AeroPrecipe!</Heading>
+      <Text>Browse and create new Aeropress recipes</Text>
+      <Button>New Recipe</Button>
     </Stack>
   </Layout>
 )
