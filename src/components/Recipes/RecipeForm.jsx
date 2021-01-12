@@ -32,14 +32,14 @@ const RecipeForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={4}>
         <RecipeFormInput
-          register={register}
+          ref={register}
           id='title'
           label={`What shall we call this recipe?`}
           placeholder={'Recipe Title'}
           error={errors.title}
         />
         <RecipeFormInput
-          register={register}
+          ref={register}
           id='author'
           label={`Who made it?`}
           placeholder={'Recipe Author'}
