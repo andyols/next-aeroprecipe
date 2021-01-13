@@ -1,5 +1,5 @@
-import { Layout } from '../components/Layout'
-import { RecipeForm } from '../components/Recipes'
+import { Layout } from '@/components/Layout'
+import { RecipeForm } from '@/components/Recipes'
 
 const Create = () => {
   return (

@@ -1,6 +1,6 @@
 import { Heading, Stack, Text, Button } from '@chakra-ui/react'
-import { Layout } from '../components/Layout'
-import { Recipes } from '../components/Recipes'
+import { Layout } from '@/components/Layout'
+import { Recipes } from '@/components/Recipes'
 import Link from 'next/link'
 import useSWR from 'swr'
 
