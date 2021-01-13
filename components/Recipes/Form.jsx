@@ -3,6 +3,7 @@ import { FormInput, FormNumberInput, FormSelect } from '.'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
+import axios from 'axios'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
@@ -41,10 +42,10 @@ const RecipeForm = () => {
 
   const createRecipe = async data => {
     try {
-      await fetch('/api/createRecipe', {
+      await axios({
+        url: '/api/recipes/create',
         method: 'POST',
-        body: JSON.stringify(data),
-        headers: { 'Content-Type': 'application/json' },
+        data,
       })
       router.push('/')
     } catch (err) {
