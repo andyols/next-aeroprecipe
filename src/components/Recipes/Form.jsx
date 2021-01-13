@@ -71,7 +71,7 @@ const RecipeForm = () => {
             ref={register}
             id='coffee'
             label='How much coffee?'
-            addon='grams'
+            addon='g'
             defaultValue={15}
             min={5}
             max={50}
@@ -95,7 +95,7 @@ const RecipeForm = () => {
             ref={register}
             id='water'
             label='How much water?'
-            addon='ml'
+            addon='mL'
             defaultValue={200}
             min={10}
             max={300}
@@ -106,7 +106,7 @@ const RecipeForm = () => {
             ref={register}
             id='temperature'
             label='How hot?'
-            addon='C'
+            addon='°C'
             defaultValue={100}
             min={0}
             max={100}
