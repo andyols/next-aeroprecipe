@@ -22,7 +22,12 @@ const Layout = props => {
 
       <Header borderColor={borderColor[colorMode]} />
 
-      <Container px={5} py={7} w={{ base: '100%', sm: '50%' }} maxW={'700px'}>
+      <Container
+        px={5}
+        py={7}
+        w={{ base: '100%', sm: '60%', md: '50%' }}
+        maxW={'700px'}
+      >
         {props.children}
       </Container>
 
