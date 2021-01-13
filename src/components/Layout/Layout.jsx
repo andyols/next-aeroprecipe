@@ -10,7 +10,7 @@ const Layout = props => {
   return (
     <Flex
       direction='column'
-      h='100vh'
+      minH='100vh'
       bg={bgColor[colorMode]}
       color={color[colorMode]}
       {...props}
