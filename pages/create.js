@@ -1,10 +1,10 @@
 import { Layout } from '@/components/Layout'
-import { RecipeForm } from '@/components/Recipes'
+import { Form } from '@/components/Recipes'
 
 const Create = () => {
   return (
     <Layout align='center'>
-      <RecipeForm />
+      <Form />
     </Layout>
   )
 }

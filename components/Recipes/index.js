@@ -1,6 +1,6 @@
 export { default as Recipes } from './Recipes'
 export { default as Recipe } from './Recipe'
-export { default as RecipeForm } from './Form'
+export { default as Form } from './Form'
 export { default as FormInput } from './FormInput'
 export { default as FormSelect } from './FormSelect'
 export { default as FormNumberInput } from './FormNumberInput'
