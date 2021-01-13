@@ -37,7 +37,9 @@ const RecipeForm = () => {
     resolver: yupResolver(schema),
   })
 
+  // todo: massage values, then send to api using SWR
   const onSubmit = values => console.log(values)
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={4}>
