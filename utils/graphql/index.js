@@ -1,17 +1,48 @@
-const GET_RECIPES = `query {
-  allRecipes {
-    data {
-      _id
-      title
-      creator
-      method
-      coffee
-      grind
-      water
-      temperature
-      time
+const GET_RECIPES = `
+  query {
+    allRecipes {
+      data {
+        _id
+        title
+        creator
+        method
+        coffee
+        grind
+        water
+        temperature
+        time
+      }
     }
   }
-}`
+`
 
-export { GET_RECIPES }
+const CREATE_RECIPE = `
+  mutation(
+    $title: String!
+    $creator: String!
+    $method: String!
+    $coffee: Int!
+    $grind: String!
+    $water: Int!
+    $temperature: Int!
+    $time: Int!
+  ) {
+    createRecipe(
+      data: {
+        title: $title
+        creator: $creator
+        method: $method
+        coffee: $coffee
+        grind: $grind
+        water: $water
+        temperature: $temperature
+        time: $time
+      }
+    ) {
+      title
+      _id
+    }
+  }
+`
+
+export { GET_RECIPES, CREATE_RECIPE }
