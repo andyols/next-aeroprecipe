@@ -8,17 +8,11 @@ import { yupResolver } from '@hookform/resolvers/yup'
 const schema = yup.object().shape({
   title: yup
     .string()
-    .max(
-      64,
-      'This title is too powerful! Try shortening it below 64 characters :)'
-    )
+    .max(64, 'This title is too powerful!')
     .required('The recipe needs a name!'),
   creator: yup
     .string()
-    .max(
-      64,
-      "That's a long name! Try reducing the length to 64 characters please"
-    ),
+    .max(64, "That's a long name! Maybe a little too long..."),
   coffee: yup
     .number()
     .min(5, "I think we're gonna need more than that!")
