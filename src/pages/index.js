@@ -5,7 +5,7 @@ import Link from 'next/link'
 import useSWR from 'swr'
 
 const Index = () => {
-  const { data: recipes } = useSWR('/api/getRecipes')
+  const { data: recipes } = useSWR('/api/recipes/get')
   return (
     <Layout title={'Welcome to AeroPrecipe'}>
       <Stack spacing={3}>

@@ -1,33 +1,20 @@
-const faunadb = require('faunadb')
-const secret = process.env.FAUNA_SECRET
-const faunaClient = new faunadb.Client({ secret })
-const q = faunadb.query
+import { GET_RECIPES } from './graphql'
+import { sendFaunaQuery, customResponse } from './functions'
 
 const getRecipes = async () => {
-  const { data } = await faunaClient.query(
-    q.Map(
-      q.Paginate(q.Documents(q.Collection('recipes'))),
-      q.Lambda('ref', q.Get(q.Var('ref')))
-    )
-  )
-  return data.map(recipe => {
-    recipe.id = recipe.ref.id
-    delete recipe.ref
-    return recipe
-  })
+  try {
+    const res = await sendFaunaQuery(GET_RECIPES)
+    const data = res.allRecipes.data
+    return customResponse(200, data)
+  } catch (err) {
+    console.error(err)
+    return customResponse(500, { msg: 'Something went wrong' })
+  }
 }
+
 const getRecipeById = async () => {}
-
-const createRecipe = async recipe =>
-  await faunaClient.query(q.Create(q.Collection('recipes'), { data: recipe }))
-
+const createRecipe = async () => {}
 const updateRecipe = async () => {}
 const deleteRecipe = async () => {}
 
-module.exports = {
-  getRecipes,
-  getRecipeById,
-  createRecipe,
-  updateRecipe,
-  deleteRecipe,
-}
+export { getRecipes, getRecipeById, createRecipe, updateRecipe, deleteRecipe }

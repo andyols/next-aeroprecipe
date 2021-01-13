@@ -1,4 +1,4 @@
-import { deleteRecipe } from '../../utils/fauna'
+import { deleteRecipe } from '../../../utils/fauna'
 
 export default async (req, res) => {
   if (req.method !== 'DELETE')
