@@ -10,19 +10,31 @@ const schema = yup.object().shape({
     .string()
     .max(
       64,
-      'This title is too powerful! Try shortening it below 64 characters. :)'
+      'This title is too powerful! Try shortening it below 64 characters :)'
     )
     .required('The recipe needs a name!'),
-  author: yup
+  creator: yup
     .string()
     .max(
       64,
-      "That's a long name! Try reducing the length to 64 characters please."
+      "That's a long name! Try reducing the length to 64 characters please"
     ),
   coffee: yup
     .number()
     .min(5, "I think we're gonna need more than that!")
     .max(50, 'Easy there, big shot!'),
+  water: yup
+    .number()
+    .min(20, 'Not sure how that will be possible...')
+    .max(300, 'What kind of Aeropress do you have?!'),
+  temperature: yup
+    .number()
+    .min(20, 'You think an ice cube is gonna brew very well?')
+    .max(100, 'Are you trying to use a pressure cooker?!'),
+  time: yup
+    .number()
+    .min(10, 'Do you have a time machine or something?')
+    .max(1800, 'Jeez, you think anyone is gonna wait that long for coffee?'),
 })
 
 const RecipeForm = () => {
@@ -39,16 +51,16 @@ const RecipeForm = () => {
           ref={register}
           id='title'
           label='What shall we call this recipe?'
-          placeholder='Recipe Title'
+          placeholder='Title'
           error={errors.title}
         />
         <FormInput
           ref={register}
-          id='author'
+          id='creator'
           label='Who made it?'
-          placeholder='Recipe Author'
+          placeholder='Creator'
           help="Unless it's a super secret recipe"
-          error={errors.author}
+          error={errors.creator}
         />
         <FormSelect
           ref={register}
@@ -66,6 +78,9 @@ const RecipeForm = () => {
             id='coffee'
             label='How much coffee?'
             addon='grams'
+            defaultValue={15}
+            min={5}
+            max={50}
             error={errors.coffee}
           />
           <FormSelect
@@ -81,6 +96,42 @@ const RecipeForm = () => {
             ]}
           />
         </Stack>
+        <Stack isInline={useBreakpointValue({ base: false, lg: true })}>
+          <FormNumberInput
+            ref={register}
+            id='water'
+            label='How much water?'
+            addon='ml'
+            defaultValue={200}
+            min={10}
+            max={300}
+            step={5}
+            error={errors.water}
+          />
+          <FormNumberInput
+            ref={register}
+            id='temperature'
+            label='How hot?'
+            addon='C'
+            defaultValue={100}
+            min={0}
+            max={100}
+            help='Or cold, depends on your perspective'
+            error={errors.temperature}
+          />
+        </Stack>
+        <FormNumberInput
+          ref={register}
+          id='time'
+          label='About how long will the brew take?'
+          addon='seconds'
+          defaultValue={90}
+          min={10}
+          max={1200}
+          step={10}
+          help='A rough estimate here will be fine :)'
+          error={errors.time}
+        />
         <Stack isInline pt={2} justify='space-between'>
           <Link href='/'>
             <Button w='40%'>Back</Button>
