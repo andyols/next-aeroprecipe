@@ -10,7 +10,7 @@ dependencies:
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
   react-hook-form: 6.14.1_react@17.0.1
-  react-query: 3.5.12_react-dom@17.0.1+react@17.0.1
+  swr: 0.4.0_react@17.0.1
   yup: 0.32.8
 lockfileVersion: 5.2
 packages:
@@ -3408,13 +3408,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
-  /match-sorter/6.1.0:
-    dependencies:
-      '@babel/runtime': 7.12.5
-      remove-accents: 0.4.2
-    dev: false
-    resolution:
-      integrity: sha512-sKPMf4kbF7Dm5Crx0bbfLpokK68PUJ/0STUIOPa1ZmTZEA3lCaPK3gapQR573oLmvdkTfGojzySkIwuq6Z6xRQ==
   /md5.js/1.3.5:
     dependencies:
       hash-base: 3.1.0
@@ -4309,24 +4302,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-  /react-query/3.5.12_react-dom@17.0.1+react@17.0.1:
-    dependencies:
-      '@babel/runtime': 7.12.5
-      match-sorter: 6.1.0
-      react: 17.0.1
-      react-dom: 17.0.1_react@17.0.1
-    dev: false
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: '*'
-      react-native: '*'
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-      react-native:
-        optional: true
-    resolution:
-      integrity: sha512-e7cqRHoEiA8iew9oyC8rrPnGsn/+vCFt2+2TKErWHptY+3lTqhYaETqh621LQcSYX3EhA8iU1sUCijRDQf929g==
   /react-refresh/0.8.3:
     dev: false
     engines:
@@ -4452,10 +4427,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-jbD/FT0+9MBU2XAZluI7w2OBs1RBi6p9M83nkoZayQXXU9e8Robt69FcZc7wU4eJD/YFTjn1JdCk3rbMJajz8Q==
-  /remove-accents/0.4.2:
-    dev: false
-    resolution:
-      integrity: sha1-CkPTqq4egNuRngeuJUsoXZ4ce7U=
   /remove-trailing-separator/1.1.0:
     dev: false
     optional: true
@@ -5026,6 +4997,15 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
+  /swr/0.4.0_react@17.0.1:
+    dependencies:
+      dequal: 2.0.2
+      react: 17.0.1
+    dev: false
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0
+    resolution:
+      integrity: sha512-70qd1FHYHwIdYXW0jTpm5ktitzvPBCtyKz8ZzynWlY/rMqe4drYPgcl/H9Ipuh+Xv6ZW5viNx13ro8EKIWZcoQ==
   /tapable/1.1.3:
     dev: false
     engines:
@@ -5540,5 +5520,5 @@ specifiers:
   react: ^17.0.1
   react-dom: ^17.0.1
   react-hook-form: ^6.14.1
-  react-query: ^3.5.12
+  swr: ^0.4.0
   yup: ^0.32.8
