@@ -5,7 +5,7 @@ export default async (req, res) => {
     return res.status(405).json({ msg: 'Method not allowed' })
 
   try {
-    const newRecipe = await createRecipe()
+    const newRecipe = await createRecipe(req.body)
     return res.status(200).json(newRecipe)
   } catch (err) {
     console.error(err)

@@ -1,6 +1,7 @@
 import { Button, Stack, useBreakpointValue } from '@chakra-ui/react'
 import { FormInput, FormNumberInput, FormSelect } from '.'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -32,16 +33,27 @@ const schema = yup.object().shape({
 })
 
 const RecipeForm = () => {
+  const router = useRouter()
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema),
   })
 
-  // todo: massage values, then send to api using SWR
-  const onSubmit = values => console.log(values)
+  const createRecipe = async data => {
+    try {
+      await fetch('/api/createRecipe', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
+      })
+      router.push('/')
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(createRecipe)}>
       <Stack spacing={4}>
         <FormInput
           ref={register}

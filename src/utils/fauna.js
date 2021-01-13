@@ -17,7 +17,10 @@ const getRecipes = async () => {
   })
 }
 const getRecipeById = async () => {}
-const createRecipe = async () => {}
+
+const createRecipe = async recipe =>
+  await faunaClient.query(q.Create(q.Collection('recipes'), { data: recipe }))
+
 const updateRecipe = async () => {}
 const deleteRecipe = async () => {}
 
