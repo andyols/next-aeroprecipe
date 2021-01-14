@@ -45,4 +45,35 @@ const CREATE_RECIPE = `
   }
 `
 
-export { GET_RECIPES, CREATE_RECIPE }
+const UPDATE_RECIPE = `
+  mutation(
+    $id: ID!
+    $title: String!
+    $creator: String!
+    $method: String!
+    $coffee: Int!
+    $grind: String!
+    $water: Int!
+    $temperature: Int!
+    $time: Int!
+  ) {
+    updateRecipe(
+      id: $id,
+      data: {
+        title: $title
+        creator: $creator
+        method: $method
+        coffee: $coffee
+        grind: $grind
+        water: $water
+        temperature: $temperature
+        time: $time
+      }
+    ) {
+      title
+      _id
+    }
+  }
+`
+
+export { GET_RECIPES, CREATE_RECIPE, UPDATE_RECIPE }
