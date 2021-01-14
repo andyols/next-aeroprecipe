@@ -1,3 +1,5 @@
+import axios from 'axios'
+import { useRouter } from 'next/router'
 import {
   Accordion,
   AccordionButton,
@@ -17,6 +19,19 @@ import { ArrowForwardIcon, DeleteIcon } from '@chakra-ui/icons'
 const Recipe = ({ recipe }) => {
   const { colorMode } = useColorMode()
   const typography = { light: 'gray.600', dark: 'gray.400' }
+
+  const deleteRecipe = async id => {
+    try {
+      await axios({
+        url: '/api/recipes/delete',
+        method: 'DELETE',
+        data: { id },
+      })
+      router.push('/')
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   return (
     <Accordion allowMultiple>
@@ -58,7 +73,12 @@ const Recipe = ({ recipe }) => {
             >
               Go to Recipe
             </Button>
-            <Button size='sm' colorScheme='red' leftIcon={<DeleteIcon />}>
+            <Button
+              size='sm'
+              colorScheme='red'
+              leftIcon={<DeleteIcon />}
+              onClick={() => deleteRecipe(recipe._id)}
+            >
               Delete Recipe
             </Button>
           </Flex>
