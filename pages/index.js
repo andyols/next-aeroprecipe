@@ -2,10 +2,17 @@ import { Heading, Stack, Text, Button } from '@chakra-ui/react'
 import { Layout } from '@/components/Layout'
 import { Recipes } from '@/components/Recipes'
 import Link from 'next/link'
-import useSWR from 'swr'
+import { useQuery } from 'react-query'
+import axios from 'axios'
 
 const Index = () => {
-  const { data: recipes } = useSWR('/api/recipes/get')
+  const { data: recipes, error, isLoading, isError } = useQuery('recipes', () =>
+    axios('/api/recipes/get')
+  )
+
+  if (isLoading) return <Text>Loading...</Text>
+  if (isError) return <Text>{error}</Text>
+
   return (
     <Layout title={'Welcome to AeroPrecipe'}>
       <Stack spacing={3}>
@@ -16,7 +23,7 @@ const Index = () => {
             New Recipe
           </Button>
         </Link>
-        {recipes && <Recipes recipes={recipes} />}
+        {recipes && <Recipes recipes={recipes.data} />}
       </Stack>
     </Layout>
   )
