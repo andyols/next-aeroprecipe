@@ -76,9 +76,9 @@ const RecipeForm = () => {
           id='method'
           label='What brewing method?'
           options={[
-            { value: 'standard', text: 'Standard' },
-            { value: 'inverted', text: 'Inverted' },
-            { value: 'other', text: 'Other' },
+            { value: 'Standard', text: 'Standard' },
+            { value: 'Inverted', text: 'Inverted' },
+            { value: 'Other', text: 'Other' },
           ]}
         />
         <Stack isInline={useBreakpointValue({ base: false, lg: true })}>
@@ -97,11 +97,11 @@ const RecipeForm = () => {
             id='grind'
             label='How fine we grinding?'
             options={[
-              { value: 'veryfine', text: 'Very Fine' },
-              { value: 'fine', text: 'Fine' },
-              { value: 'medium', text: 'Medium' },
-              { value: 'coarse', text: 'Coarse' },
-              { value: 'verycoarse', text: 'Very Coarse' },
+              { value: 'Very Fine', text: 'Very Fine' },
+              { value: 'Fine', text: 'Fine' },
+              { value: 'Medium', text: 'Medium' },
+              { value: 'Coarse', text: 'Coarse' },
+              { value: 'Very Coarse', text: 'Very Coarse' },
             ]}
           />
         </Stack>
