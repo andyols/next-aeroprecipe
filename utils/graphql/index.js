@@ -15,7 +15,6 @@ const GET_RECIPES = `
     }
   }
 `
-
 const CREATE_RECIPE = `
   mutation(
     $title: String!
@@ -44,7 +43,13 @@ const CREATE_RECIPE = `
     }
   }
 `
-
+const FIND_RECIPE = `
+  query($id: ID!) {
+    findRecipeByID(id: $id) {
+      _id
+    }
+  }
+`
 const UPDATE_RECIPE = `
   mutation(
     $id: ID!
@@ -70,12 +75,12 @@ const UPDATE_RECIPE = `
         time: $time
       }
     ) {
-      title
       _id
+      title
+      creator
     }
   }
 `
-
 const DELETE_RECIPE = `
   mutation($id: ID!) {
     deleteRecipe(id: $id) {
@@ -84,4 +89,4 @@ const DELETE_RECIPE = `
   }
 `
 
-export { GET_RECIPES, CREATE_RECIPE, UPDATE_RECIPE, DELETE_RECIPE }
+export { GET_RECIPES, FIND_RECIPE, CREATE_RECIPE, UPDATE_RECIPE, DELETE_RECIPE }
