@@ -6,7 +6,7 @@ export default async (req, res) => {
     return res.status(405).json({ msg: 'Method not allowed' })
 
   const {
-    _id: id,
+    id,
     title,
     creator,
     method,
