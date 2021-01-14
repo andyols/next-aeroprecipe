@@ -1,22 +1,70 @@
-import { Box, Text, useColorMode } from '@chakra-ui/react'
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Button,
+  Flex,
+  Stack,
+  Tag,
+  Text,
+  useColorMode,
+} from '@chakra-ui/react'
+import { ArrowForwardIcon, DeleteIcon } from '@chakra-ui/icons'
 
 const Recipe = ({ recipe }) => {
   const { colorMode } = useColorMode()
-  const border = { light: 'gray.200', dark: 'gray.700' }
   const typography = { light: 'gray.600', dark: 'gray.400' }
+
   return (
-    <Box
-      border='1px'
-      borderRadius='md'
-      borderColor={border[colorMode]}
-      px={3}
-      py={2}
-    >
-      <Text fontWeight='medium'>{recipe.title}</Text>
-      <Text fontSize='sm' color={typography[colorMode]}>
-        {recipe.author}
-      </Text>
-    </Box>
+    <Accordion allowMultiple>
+      <AccordionItem border='none'>
+        <AccordionButton>
+          <Box flex='1' textAlign='left'>
+            <Text fontWeight='medium'>{recipe.title}</Text>
+            {recipe.creator && (
+              <Text fontSize='sm' color={typography[colorMode]}>
+                {recipe.creator}
+              </Text>
+            )}
+            <Stack direction='row' mt={2}>
+              <Tag size='sm' borderRadius='full'>
+                {recipe.coffee}g ☕
+              </Tag>
+              <Tag size='sm' borderRadius='full'>
+                {recipe.grind} ⚙️
+              </Tag>
+              <Tag size='sm' borderRadius='full'>
+                {recipe.water}mL 💧
+              </Tag>
+              <Tag size='sm' borderRadius='full'>
+                {recipe.temperature}c 🌡️
+              </Tag>
+              <Tag size='sm' borderRadius='full'>
+                {recipe.time}s ⏱️
+              </Tag>
+            </Stack>
+          </Box>
+          <AccordionIcon />
+        </AccordionButton>
+        <AccordionPanel pb={1}>
+          <Flex justify='space-between'>
+            <Button
+              size='sm'
+              colorScheme='teal'
+              rightIcon={<ArrowForwardIcon />}
+            >
+              Go to Recipe
+            </Button>
+            <Button size='sm' colorScheme='red' leftIcon={<DeleteIcon />}>
+              Delete Recipe
+            </Button>
+          </Flex>
+        </AccordionPanel>
+      </AccordionItem>
+    </Accordion>
   )
 }
 
