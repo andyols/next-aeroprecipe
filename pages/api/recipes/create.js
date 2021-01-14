@@ -33,8 +33,6 @@ export default async (req, res) => {
     return res.status(200).json(createdRecipe)
   } catch (err) {
     console.error(err)
-    return customResponse(500, {
-      msg: 'Something went wrong...',
-    })
+    return res.status(500).json({ msg: 'Something went wrong' })
   }
 }

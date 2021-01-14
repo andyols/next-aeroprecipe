@@ -1,10 +1,5 @@
 import axios from 'axios'
 
-const customResponse = (status, body) => ({
-  status,
-  body: JSON.stringify(body),
-})
-
 const sendFaunaQuery = async (query, variables) => {
   const {
     data: { data, errors },
@@ -23,4 +18,4 @@ const sendFaunaQuery = async (query, variables) => {
   return data
 }
 
-export { customResponse, sendFaunaQuery }
+export { sendFaunaQuery }
