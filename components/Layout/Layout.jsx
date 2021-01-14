@@ -25,7 +25,7 @@ const Layout = props => {
       <Container
         px={5}
         py={7}
-        w={{ base: '100%', sm: '60%', md: '50%' }}
+        w={{ base: '100%', sm: '65%', lg: '55%' }}
         maxW={'700px'}
       >
         {props.children}
