@@ -3,9 +3,11 @@ import { FormInput, FormNumberInput, FormSelect } from '.'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
-import axios from 'axios'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useMutation } from 'react-query'
+import { useQueryClient } from 'react-query'
+import { createRecipe } from '@/utils/axios'
 
 const schema = yup.object().shape({
   title: yup
@@ -35,26 +37,22 @@ const schema = yup.object().shape({
 
 const RecipeForm = () => {
   const router = useRouter()
+  const queryCache = useQueryClient()
+
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema),
   })
+  const { mutateAsync, isLoading } = useMutation(createRecipe)
 
-  const createRecipe = async data => {
-    try {
-      await axios({
-        url: '/api/recipes/create',
-        method: 'POST',
-        data,
-      })
-      router.push('/')
-    } catch (err) {
-      console.error(err)
-    }
+  const create = async data => {
+    await mutateAsync(data)
+    queryCache.invalidateQueries('recipes')
+    router.push('/')
   }
 
   return (
-    <form onSubmit={handleSubmit(createRecipe)}>
+    <form onSubmit={handleSubmit(create)}>
       <Stack spacing={4}>
         <FormInput
           ref={register}
@@ -145,7 +143,13 @@ const RecipeForm = () => {
           <Link href='/'>
             <Button w='40%'>Back</Button>
           </Link>
-          <Button w='40%' colorScheme='green' type='submit'>
+          <Button
+            w='40%'
+            colorScheme='green'
+            type='submit'
+            isLoading={isLoading}
+            loadingText='Creating'
+          >
             Create!
           </Button>
         </Stack>
