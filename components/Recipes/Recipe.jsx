@@ -35,13 +35,11 @@ const Recipe = ({ recipe }) => {
         <AccordionButton>
           <Box flex='1' textAlign='left'>
             <Text fontWeight='medium'>{recipe.title}</Text>
-            {recipe.creator && (
-              <Text fontSize='sm' color={typography[colorMode]}>
-                {recipe.creator}
-                {' - '}
-                {recipe.method}
-              </Text>
-            )}
+            <Text fontSize='sm' color={typography[colorMode]}>
+              {recipe.creator
+                ? `${recipe.creator} - ${recipe.method}`
+                : `${recipe.method}`}
+            </Text>
             <Stack direction='row' mt={2}>
               <Tag size='sm' borderRadius='full'>
                 {recipe.coffee}g ☕
