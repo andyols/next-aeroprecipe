@@ -17,18 +17,6 @@ export default async (req, res) => {
     time,
   } = req.body
 
-  console.log({
-    id,
-    title,
-    creator,
-    method,
-    coffee,
-    grind,
-    water,
-    temperature,
-    time,
-  })
-
   try {
     const { updateRecipe: updatedRecipe } = await sendFaunaQuery(
       UPDATE_RECIPE,
