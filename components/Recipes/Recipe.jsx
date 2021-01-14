@@ -38,6 +38,8 @@ const Recipe = ({ recipe }) => {
             {recipe.creator && (
               <Text fontSize='sm' color={typography[colorMode]}>
                 {recipe.creator}
+                {' - '}
+                {recipe.method}
               </Text>
             )}
             <Stack direction='row' mt={2}>
