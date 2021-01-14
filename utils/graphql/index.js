@@ -76,4 +76,12 @@ const UPDATE_RECIPE = `
   }
 `
 
-export { GET_RECIPES, CREATE_RECIPE, UPDATE_RECIPE }
+const DELETE_RECIPE = `
+  mutation($id: ID!) {
+    deleteRecipe(id: $id) {
+      _id
+    }
+  }
+`
+
+export { GET_RECIPES, CREATE_RECIPE, UPDATE_RECIPE, DELETE_RECIPE }
