@@ -3,11 +3,12 @@ import { Layout } from '@/components/Layout'
 import { Recipes } from '@/components/Recipes'
 import Link from 'next/link'
 import { useQuery } from 'react-query'
-import axios from 'axios'
+import { getAllRecipes } from '@/utils/axios'
 
 const Index = () => {
-  const { data: recipes, error, isLoading, isError } = useQuery('recipes', () =>
-    axios('/api/recipes/get')
+  const { data: recipes, error, isLoading, isError } = useQuery(
+    'recipes',
+    getAllRecipes
   )
 
   if (isLoading) return <Text>Loading...</Text>
