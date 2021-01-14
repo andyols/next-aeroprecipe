@@ -1,4 +1,3 @@
-import axios from 'axios'
 import {
   Accordion,
   AccordionButton,
@@ -14,22 +13,20 @@ import {
   useColorMode,
 } from '@chakra-ui/react'
 import { ArrowForwardIcon, DeleteIcon } from '@chakra-ui/icons'
+import { useMutation } from 'react-query'
+import { useQueryClient } from 'react-query'
+import { deleteRecipe } from '@/utils/axios'
 
 const Recipe = ({ recipe }) => {
   const { colorMode } = useColorMode()
   const typography = { light: 'gray.600', dark: 'gray.400' }
 
-  const deleteRecipe = async id => {
-    try {
-      await axios({
-        url: '/api/recipes/delete',
-        method: 'DELETE',
-        data: { id },
-      })
-      router.push('/')
-    } catch (err) {
-      console.error(err)
-    }
+  const queryCache = useQueryClient()
+  const { mutateAsync, isLoading } = useMutation(deleteRecipe)
+
+  const handleDelete = async () => {
+    await mutateAsync(recipe._id)
+    queryCache.invalidateQueries('recipes')
   }
 
   return (
@@ -76,7 +73,9 @@ const Recipe = ({ recipe }) => {
               size='sm'
               colorScheme='red'
               leftIcon={<DeleteIcon />}
-              onClick={() => deleteRecipe(recipe._id)}
+              onClick={handleDelete}
+              isLoading={isLoading}
+              loadingText='Deleting'
             >
               Delete Recipe
             </Button>
