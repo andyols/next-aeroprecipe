@@ -1,5 +1,5 @@
 import { UPDATE_RECIPE } from '@/utils/queries'
-import faunaQuery from '@/utils/query'
+import query from '@/utils/query'
 
 export default async (req, res) => {
   if (req.method !== 'PUT')
@@ -18,7 +18,7 @@ export default async (req, res) => {
   } = req.body
 
   try {
-    const { updateRecipe: updatedRecipe } = await faunaQuery(UPDATE_RECIPE, {
+    const { updateRecipe: updatedRecipe } = await query(UPDATE_RECIPE, {
       id,
       title,
       creator,

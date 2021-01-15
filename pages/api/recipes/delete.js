@@ -1,5 +1,5 @@
 import { DELETE_RECIPE } from '@/utils/queries'
-import faunaQuery from '@/utils/query'
+import query from '@/utils/query'
 
 export default async (req, res) => {
   if (req.method !== 'DELETE')
@@ -8,7 +8,7 @@ export default async (req, res) => {
   const { id } = req.body
 
   try {
-    const { deleteRecipe: deletedRecipe } = await faunaQuery(DELETE_RECIPE, {
+    const { deleteRecipe: deletedRecipe } = await query(DELETE_RECIPE, {
       id,
     })
 

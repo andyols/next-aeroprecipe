@@ -1,5 +1,5 @@
 import { CREATE_RECIPE } from '@/utils/queries'
-import faunaQuery from '@/utils/query'
+import query from '@/utils/query'
 
 export default async (req, res) => {
   if (req.method !== 'POST')
@@ -17,7 +17,7 @@ export default async (req, res) => {
   } = req.body
 
   try {
-    const { createRecipe: createdRecipe } = await faunaQuery(CREATE_RECIPE, {
+    const { createRecipe: createdRecipe } = await query(CREATE_RECIPE, {
       title,
       creator,
       method,
