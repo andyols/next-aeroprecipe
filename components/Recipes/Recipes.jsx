@@ -3,22 +3,15 @@ import { Recipe } from '.'
 
 const Recipes = ({ recipes }) => {
   const { colorMode } = useColorMode()
-  const border = { light: 'gray.200', dark: 'gray.700' }
+  const bg = { light: 'gray.50', dark: 'gray.700' }
   return (
-    <Box border='1px' borderRadius='md' borderColor={border[colorMode]}>
-      <Stack>
-        {recipes.map((r, i, arr) => (
-          <Box
-            mb={i === arr.length - 1 ? 2 : 'none'}
-            borderTop={i === 0 ? 'none' : '1px'}
-            borderColor={border[colorMode]}
-            key={r._id}
-          >
-            <Recipe recipe={r} />
-          </Box>
-        ))}
-      </Stack>
-    </Box>
+    <Stack>
+      {recipes.map(r => (
+        <Box bg={bg[colorMode]} borderRadius='md' boxShadow='base' key={r._id}>
+          <Recipe recipe={r} />
+        </Box>
+      ))}
+    </Stack>
   )
 }
 

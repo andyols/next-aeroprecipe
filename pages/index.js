@@ -18,9 +18,9 @@ const Index = () => {
 
   return (
     <Layout title={'Welcome to AeroPrecipe'}>
-      <Stack spacing={3}>
+      <Stack spacing={2}>
         <Heading>Welcome to AeroPrecipe!</Heading>
-        <Text>Browse and create new Aeropress recipes</Text>
+        <Text pb={3}>Browse and create new Aeropress recipes</Text>
         {<GeneratedRecipes />}
       </Stack>
     </Layout>

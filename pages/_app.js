@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </ColorModeProvider>
       </ChakraProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   )
 }
