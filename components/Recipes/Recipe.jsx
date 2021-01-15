@@ -7,7 +7,7 @@ import {
   Box,
   Button,
   Flex,
-  Stack,
+  IconButton,
   Tag,
   Text,
   useColorMode,
@@ -40,45 +40,47 @@ const Recipe = ({ recipe }) => {
                 ? `${recipe.creator} - ${recipe.method}`
                 : `${recipe.method}`}
             </Text>
-            <Stack direction='row' mt={2}>
-              <Tag size='sm' borderRadius='full'>
+            <Flex flexWrap='wrap' mt={1}>
+              <Tag my={1} mx={2} ml={0} size='sm' borderRadius='full'>
                 {recipe.coffee}g ☕
               </Tag>
-              <Tag size='sm' borderRadius='full'>
+              <Tag my={1} mx={2} ml={0} size='sm' borderRadius='full'>
                 {recipe.grind} ⚙️
               </Tag>
-              <Tag size='sm' borderRadius='full'>
+              <Tag my={1} mx={2} ml={0} size='sm' borderRadius='full'>
                 {recipe.water}mL 💧
               </Tag>
-              <Tag size='sm' borderRadius='full'>
+              <Tag my={1} mx={2} ml={0} size='sm' borderRadius='full'>
                 {recipe.temperature}c 🌡️
               </Tag>
-              <Tag size='sm' borderRadius='full'>
+              <Tag my={1} mx={2} ml={0} size='sm' borderRadius='full'>
                 {recipe.time}s ⏱️
               </Tag>
-            </Stack>
+            </Flex>
           </Box>
           <AccordionIcon />
         </AccordionButton>
         <AccordionPanel pb={1}>
-          <Flex justify='space-between'>
+          <Flex justify='space-between' alignContent='flext-start'>
             <Button
+              variant='link'
               size='sm'
               colorScheme='teal'
               rightIcon={<ArrowForwardIcon />}
             >
               Go to Recipe
             </Button>
-            <Button
+            <IconButton
+              variant='ghost'
               size='sm'
               colorScheme='red'
-              leftIcon={<DeleteIcon />}
+              aria-label='Delete Recipe'
+              icon={<DeleteIcon />}
               onClick={handleDelete}
               isLoading={isLoading}
-              loadingText='Deleting'
             >
               Delete Recipe
-            </Button>
+            </IconButton>
           </Flex>
         </AccordionPanel>
       </AccordionItem>
