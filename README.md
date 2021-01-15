@@ -1,27 +1,34 @@
-# My personal starter app (wip) with Next.js + chakra-ui
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-This starter features a comprehensive layout structure using [chakra-ui](https://github.com/chakra-ui/chakra-ui) as the component library within a [Next.js](https://github.com/vercel/next.js) app.
+## Getting Started
 
-It uses Next.js `_app.js` + `_document.js` root pages in conjunction with `chakra-ui`'s Theme and ColorMode containers / scripts so the pages can have app-wide dark/light mode.
-
-It also includes an example page using the built in routing system from next.
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the starter:
+First, run the development server:
 
 ```bash
-npx create-next-app [project-name] -e https://github.com/andyols/next-chakra-starter
+npm run dev
 # or
-pnpx create-next-app [project-name] -e https://github.com/andyols/next-chakra-starter
-# or
-yarn create next-app [project-name] -e https://github.com/andyols/next-chakra-starter
+yarn dev
 ```
 
-After installing if using pnpm:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```bash
-cd [project-name] && rm -rf node_modules && rm package-lock.json && pnpm i
-```
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-This is because create-next-app uses npm to install dependencies during the bootstrap process so these commands serve as post-install remedy to that.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
