@@ -18,6 +18,7 @@ import { useQueryClient } from 'react-query'
 import { deleteRecipe } from '@/utils/axios'
 
 const Recipe = ({ recipe }) => {
+  console.log('📝 ~ file: Recipe.jsx ~ line 21 ~ recipe', recipe)
   const { colorMode } = useColorMode()
   const typography = { light: 'gray.600', dark: 'gray.400' }
 
