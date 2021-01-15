@@ -1,4 +1,3 @@
-import { useRef } from 'react'
 import {
   Box,
   Button,
@@ -6,9 +5,10 @@ import {
   IconButton,
   Tag,
   Text,
+  Stack,
   useColorMode,
 } from '@chakra-ui/react'
-import { ArrowForwardIcon, DeleteIcon } from '@chakra-ui/icons'
+import { ArrowForwardIcon, DeleteIcon, EditIcon } from '@chakra-ui/icons'
 import { useMutation } from 'react-query'
 import { useQueryClient } from 'react-query'
 import { deleteRecipe } from '@/utils/axios'
@@ -16,7 +16,6 @@ import { deleteRecipe } from '@/utils/axios'
 const Recipe = ({ recipe }) => {
   const { colorMode } = useColorMode()
   const queryCache = useQueryClient()
-  const initalFocusRef = useRef()
   const typography = { light: 'gray.600', dark: 'gray.400' }
 
   const { mutateAsync, isLoading } = useMutation(deleteRecipe)
@@ -38,17 +37,21 @@ const Recipe = ({ recipe }) => {
           </Text>
         </Flex>
 
-        <IconButton
-          variant='ghost'
-          size='sm'
-          colorScheme='red'
-          aria-label='Delete Recipe'
-          icon={<DeleteIcon />}
-          onClick={handleDelete}
-          isLoading={isLoading}
-        >
-          Delete Recipe
-        </IconButton>
+        <Stack direction='row' spacing={0} m={-3}>
+          <IconButton
+            variant='ghost'
+            aria-label='Edit Recipe'
+            icon={<EditIcon />}
+          />
+          <IconButton
+            variant='ghost'
+            colorScheme='red'
+            aria-label='Delete Recipe'
+            icon={<DeleteIcon />}
+            onClick={handleDelete}
+            isLoading={isLoading}
+          />
+        </Stack>
       </Flex>
 
       <Flex flexWrap='wrap' mt={1}>

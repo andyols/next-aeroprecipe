@@ -1,4 +1,4 @@
-import { EditIcon } from '@chakra-ui/icons'
+import { AddIcon } from '@chakra-ui/icons'
 import {
   Button,
   Link as ChakraLink,
@@ -22,7 +22,7 @@ const Header = props => {
       <Spacer />
       <Flex align='center'>
         <Link href='/create'>
-          <Button colorScheme='teal' size='sm' rightIcon={<EditIcon />}>
+          <Button colorScheme='teal' size='sm' rightIcon={<AddIcon />}>
             New Recipe
           </Button>
         </Link>
