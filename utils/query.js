@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const sendFaunaQuery = async (query, variables) => {
+export default async (query, variables) => {
   const {
     data: { data, errors },
   } = await axios({
@@ -17,5 +17,3 @@ const sendFaunaQuery = async (query, variables) => {
   }
   return data
 }
-
-export { sendFaunaQuery }

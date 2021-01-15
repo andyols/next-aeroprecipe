@@ -1,5 +1,5 @@
-import { UPDATE_RECIPE } from '@/utils/graphql'
-import { sendFaunaQuery } from '@/utils/functions'
+import { UPDATE_RECIPE } from '@/utils/queries'
+import faunaQuery from '@/utils/query'
 
 export default async (req, res) => {
   if (req.method !== 'PUT')
@@ -18,20 +18,17 @@ export default async (req, res) => {
   } = req.body
 
   try {
-    const { updateRecipe: updatedRecipe } = await sendFaunaQuery(
-      UPDATE_RECIPE,
-      {
-        id,
-        title,
-        creator,
-        method,
-        coffee,
-        grind,
-        water,
-        temperature,
-        time,
-      }
-    )
+    const { updateRecipe: updatedRecipe } = await faunaQuery(UPDATE_RECIPE, {
+      id,
+      title,
+      creator,
+      method,
+      coffee,
+      grind,
+      water,
+      temperature,
+      time,
+    })
     return res.status(200).json(updatedRecipe)
   } catch (err) {
     console.error(err)

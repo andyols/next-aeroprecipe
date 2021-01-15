@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useMutation } from 'react-query'
 import { useQueryClient } from 'react-query'
-import { createRecipe } from '@/utils/axios'
+import { createRecipe } from '@/utils/api'
 import { schema } from '@/lib/schema'
 
 const RecipeForm = () => {

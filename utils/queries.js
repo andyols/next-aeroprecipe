@@ -1,4 +1,4 @@
-const GET_RECIPES = `
+export const GET_RECIPES = `
   query {
     allRecipes {
       data {
@@ -15,7 +15,7 @@ const GET_RECIPES = `
     }
   }
 `
-const CREATE_RECIPE = `
+export const CREATE_RECIPE = `
   mutation(
     $title: String!
     $creator: String!
@@ -43,14 +43,14 @@ const CREATE_RECIPE = `
     }
   }
 `
-const FIND_RECIPE = `
+export const FIND_RECIPE = `
   query($id: ID!) {
     findRecipeByID(id: $id) {
       _id
     }
   }
 `
-const UPDATE_RECIPE = `
+export const UPDATE_RECIPE = `
   mutation(
     $id: ID!
     $title: String!
@@ -81,12 +81,10 @@ const UPDATE_RECIPE = `
     }
   }
 `
-const DELETE_RECIPE = `
+export const DELETE_RECIPE = `
   mutation($id: ID!) {
     deleteRecipe(id: $id) {
       _id
     }
   }
 `
-
-export { GET_RECIPES, FIND_RECIPE, CREATE_RECIPE, UPDATE_RECIPE, DELETE_RECIPE }

@@ -1,5 +1,5 @@
-import { CREATE_RECIPE } from '@/utils/graphql'
-import { sendFaunaQuery } from '@/utils/functions'
+import { CREATE_RECIPE } from '@/utils/queries'
+import faunaQuery from '@/utils/query'
 
 export default async (req, res) => {
   if (req.method !== 'POST')
@@ -17,19 +17,16 @@ export default async (req, res) => {
   } = req.body
 
   try {
-    const { createRecipe: createdRecipe } = await sendFaunaQuery(
-      CREATE_RECIPE,
-      {
-        title,
-        creator,
-        method,
-        coffee,
-        grind,
-        water,
-        temperature,
-        time,
-      }
-    )
+    const { createRecipe: createdRecipe } = await faunaQuery(CREATE_RECIPE, {
+      title,
+      creator,
+      method,
+      coffee,
+      grind,
+      water,
+      temperature,
+      time,
+    })
     return res.status(200).json(createdRecipe)
   } catch (err) {
     console.error(err)

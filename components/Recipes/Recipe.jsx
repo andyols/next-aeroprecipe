@@ -11,7 +11,7 @@ import {
 import { ArrowForwardIcon, DeleteIcon, EditIcon } from '@chakra-ui/icons'
 import { useMutation } from 'react-query'
 import { useQueryClient } from 'react-query'
-import { deleteRecipe } from '@/utils/axios'
+import { deleteRecipe } from '@/utils/api'
 
 const Recipe = ({ recipe }) => {
   const { colorMode } = useColorMode()

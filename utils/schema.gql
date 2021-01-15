@@ -1,0 +1,14 @@
+type Recipe {
+  title: String!
+  creator: String!
+  method: String!
+  coffee: Int!
+  grind: String!
+  water: Int!
+  temperature: Int!
+  time: Int!
+}
+
+type Query {
+  allRecipes: [Recipe!]!
+}

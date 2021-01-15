@@ -1,5 +1,5 @@
-import { DELETE_RECIPE } from '@/utils/graphql'
-import { sendFaunaQuery } from '@/utils/functions'
+import { DELETE_RECIPE } from '@/utils/queries'
+import faunaQuery from '@/utils/query'
 
 export default async (req, res) => {
   if (req.method !== 'DELETE')
@@ -8,10 +8,9 @@ export default async (req, res) => {
   const { id } = req.body
 
   try {
-    const { deleteRecipe: deletedRecipe } = await sendFaunaQuery(
-      DELETE_RECIPE,
-      { id }
-    )
+    const { deleteRecipe: deletedRecipe } = await faunaQuery(DELETE_RECIPE, {
+      id,
+    })
 
     return res.status(200).json(deletedRecipe)
   } catch (err) {

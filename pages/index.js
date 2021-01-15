@@ -2,7 +2,7 @@ import { Heading, Stack, Text } from '@chakra-ui/react'
 import { Layout } from '@/components/Layout'
 import { Recipes } from '@/components/Recipes'
 import { useQuery } from 'react-query'
-import { getAllRecipes } from '@/utils/axios'
+import { getAllRecipes } from '@/utils/api'
 
 const Index = () => {
   const { data: recipes, error, isLoading, isError } = useQuery(

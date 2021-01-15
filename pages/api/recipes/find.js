@@ -1,5 +1,5 @@
-import { FIND_RECIPE } from '@/utils/graphql'
-import { sendFaunaQuery } from '@/utils/functions'
+import { FIND_RECIPE } from '@/utils/queries'
+import faunaQuery from '@/utils/query'
 
 export default async (req, res) => {
   if (req.method !== 'GET')
@@ -10,7 +10,7 @@ export default async (req, res) => {
   try {
     // TODO: Make this work... for some reason fauna is sending back null
     // exact query works fine in graphql playground... can't pinpoint the problem
-    const { findRecipeByID: foundRecipe } = await sendFaunaQuery(FIND_RECIPE, {
+    const { findRecipeByID: foundRecipe } = await faunaQuery(FIND_RECIPE, {
       id,
     })
 
