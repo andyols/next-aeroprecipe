@@ -12,6 +12,7 @@ import { ArrowForwardIcon, DeleteIcon, EditIcon } from '@chakra-ui/icons'
 import { useMutation } from 'react-query'
 import { useQueryClient } from 'react-query'
 import { deleteRecipe } from '@/utils/api'
+import Link from 'next/link'
 
 const Recipe = ({ recipe }) => {
   const { colorMode } = useColorMode()
@@ -71,15 +72,17 @@ const Recipe = ({ recipe }) => {
           {recipe.time}s ⏱️
         </Tag>
       </Flex>
-      <Button
-        mt={3}
-        variant='link'
-        size='sm'
-        colorScheme='teal'
-        rightIcon={<ArrowForwardIcon />}
-      >
-        Go to Recipe
-      </Button>
+      <Link href={`/recipe/${recipe._id}`}>
+        <Button
+          mt={3}
+          variant='link'
+          size='sm'
+          colorScheme='teal'
+          rightIcon={<ArrowForwardIcon />}
+        >
+          Go to Recipe
+        </Button>
+      </Link>
     </Box>
   )
 }
