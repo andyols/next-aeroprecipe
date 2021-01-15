@@ -1,4 +1,6 @@
+import { EditIcon } from '@chakra-ui/icons'
 import {
+  Button,
   Link as ChakraLink,
   Flex,
   Spacer,
@@ -18,14 +20,19 @@ const Header = props => {
         </ChakraLink>
       </Link>
       <Spacer />
-      <Switch
-        position='fixed'
-        top='1rem'
-        right='1rem'
-        color='green'
-        isChecked={isDark}
-        onChange={toggleColorMode}
-      />
+      <Flex align='center'>
+        <Link href='/create'>
+          <Button colorScheme='blue' size='sm' rightIcon={<EditIcon />}>
+            New Recipe
+          </Button>
+        </Link>
+        <Switch
+          pl={4}
+          isChecked={isDark}
+          onChange={toggleColorMode}
+          colorScheme='green'
+        />
+      </Flex>
     </Flex>
   )
 }

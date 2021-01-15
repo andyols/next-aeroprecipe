@@ -1,7 +1,6 @@
-import { Heading, Stack, Text, Button } from '@chakra-ui/react'
+import { Heading, Stack, Text } from '@chakra-ui/react'
 import { Layout } from '@/components/Layout'
 import { Recipes } from '@/components/Recipes'
-import Link from 'next/link'
 import { useQuery } from 'react-query'
 import { getAllRecipes } from '@/utils/axios'
 
@@ -11,20 +10,18 @@ const Index = () => {
     getAllRecipes
   )
 
-  if (isLoading) return <Text>Loading...</Text>
-  if (isError) return <Text>{error}</Text>
+  const GeneratedRecipes = () => {
+    if (isLoading) return <Text>Loading...</Text>
+    if (isError) return <Text>{error}</Text>
+    return <Recipes recipes={recipes.data} />
+  }
 
   return (
     <Layout title={'Welcome to AeroPrecipe'}>
       <Stack spacing={3}>
         <Heading>Welcome to AeroPrecipe!</Heading>
         <Text>Browse and create new Aeropress recipes</Text>
-        <Link href='/create'>
-          <Button colorScheme='teal' maxW='200px'>
-            New Recipe
-          </Button>
-        </Link>
-        {recipes && <Recipes recipes={recipes.data} />}
+        {<GeneratedRecipes />}
       </Stack>
     </Layout>
   )
