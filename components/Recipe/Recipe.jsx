@@ -52,6 +52,7 @@ const Recipe = ({ recipe }) => {
             variant='ghost'
             aria-label='Edit Recipe'
             icon={<EditIcon />}
+            onMouseDown={e => e.preventDefault()}
           />
           <IconButton
             variant='ghost'
@@ -60,6 +61,7 @@ const Recipe = ({ recipe }) => {
             icon={<DeleteIcon />}
             onClick={handleDelete}
             isLoading={isLoading}
+            onMouseDown={e => e.preventDefault()}
           />
         </Stack>
       </Flex>
@@ -88,6 +90,7 @@ const Recipe = ({ recipe }) => {
           size='sm'
           colorScheme='teal'
           rightIcon={<ArrowForwardIcon />}
+          onMouseDown={e => e.preventDefault()}
         >
           Go to Recipe
         </Button>

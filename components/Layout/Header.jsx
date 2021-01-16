@@ -21,7 +21,12 @@ const Header = props => {
       <Spacer />
       <Flex align='center'>
         <Link href='/create'>
-          <Button colorScheme='teal' size='sm' rightIcon={<AddIcon />}>
+          <Button
+            colorScheme='teal'
+            size='sm'
+            rightIcon={<AddIcon />}
+            onMouseDown={e => e.preventDefault()}
+          >
             New Recipe
           </Button>
         </Link>
