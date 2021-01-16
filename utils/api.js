@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { q_findRecipe } from './queries'
 
 export const getAllRecipes = async () =>
   await axios({ url: '/api/recipes/get', method: 'GET' })
@@ -10,17 +11,7 @@ export const createRecipe = async data =>
     data,
   })
 
-export const findRecipe = async id => {
-  try {
-    return await axios({
-      url: `/api/recipes/find`,
-      method: 'GET',
-      data: { id },
-    })
-  } catch (err) {
-    console.error(err)
-  }
-}
+export const findRecipe = async id => q_findRecipe(id)
 
 export const deleteRecipe = async id =>
   await axios({

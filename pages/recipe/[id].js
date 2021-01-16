@@ -1,6 +1,6 @@
 import { Layout } from '@components/Layout'
 import { Stack, Heading, Text } from '@chakra-ui/react'
-import { findRecipe } from '@utils/queries'
+import { findRecipe } from '@utils/api'
 
 const Recipe = ({ recipe }) => {
   return (
@@ -13,18 +13,14 @@ const Recipe = ({ recipe }) => {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps({ params: { id } }) {
   try {
-    const id = context.params.id
     const { data: recipe } = await findRecipe(id)
     return {
       props: { recipe },
     }
   } catch (err) {
-    console.error(err)
-    context.res.statusCode = 302
-    context.res.setHeader('Location', '/')
-    return { props: {} }
+    return { notFound: true }
   }
 }
 
