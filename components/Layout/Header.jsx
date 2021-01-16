@@ -8,8 +8,10 @@ import {
   useColorMode,
 } from '@chakra-ui/react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const Header = props => {
+  const router = useRouter()
   const { colorMode, toggleColorMode } = useColorMode()
   return (
     <Flex w='100%' py={3} px={6} borderBottom='1px' as='header' {...props}>
@@ -20,16 +22,18 @@ const Header = props => {
       </Link>
       <Spacer />
       <Flex align='center'>
-        <Link href='/create'>
+        <Link href='/recipe/create'>
           <Button
             colorScheme='teal'
             size='sm'
             rightIcon={<AddIcon />}
             onMouseDown={e => e.preventDefault()}
+            hidden={router.pathname.includes('create')}
           >
             New Recipe
           </Button>
         </Link>
+
         <Switch
           pl={4}
           isChecked={colorMode === 'dark'}
