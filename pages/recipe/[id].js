@@ -1,6 +1,6 @@
 import { Layout } from '@components/Layout'
 import { Stack, Heading, Text } from '@chakra-ui/react'
-import { findRecipe } from '@utils/api'
+import { q_findRecipe } from '@utils/queries'
 
 const Recipe = ({ recipe }) => {
   return (
@@ -15,7 +15,7 @@ const Recipe = ({ recipe }) => {
 
 export async function getServerSideProps({ params: { id } }) {
   try {
-    const { data: recipe } = await findRecipe(id)
+    const { data: recipe } = await q_findRecipe(id)
     return {
       props: { recipe },
     }

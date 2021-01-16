@@ -11,8 +11,6 @@ export const createRecipe = async data =>
     data,
   })
 
-export const findRecipe = async id => q_findRecipe(id)
-
 export const deleteRecipe = async id =>
   await axios({
     url: '/api/recipes/delete',
