@@ -1,4 +1,4 @@
-import { createRecipe } from '@/utils/queries'
+import { createRecipe } from '@utils/queries'
 
 export default async (req, res) => {
   if (req.method !== 'POST')

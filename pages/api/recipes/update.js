@@ -1,4 +1,4 @@
-import { updateRecipe } from '@/utils/queries'
+import { updateRecipe } from '@utils/queries'
 
 export default async (req, res) => {
   if (req.method !== 'PUT')

@@ -1,4 +1,4 @@
-import { getRecipes } from '@/utils/queries'
+import { getRecipes } from '@utils/queries'
 
 export default async (req, res) => {
   if (req.method !== 'GET')

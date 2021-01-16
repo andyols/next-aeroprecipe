@@ -1,4 +1,4 @@
-import { deleteRecipe } from '@/utils/queries'
+import { deleteRecipe } from '@utils/queries'
 
 export default async (req, res) => {
   if (req.method !== 'DELETE')

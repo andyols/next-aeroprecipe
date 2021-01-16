@@ -1,8 +1,8 @@
 import { Heading, Stack, Text } from '@chakra-ui/react'
-import { Layout } from '@/components/Layout'
-import { Recipes } from '@/components/Recipe'
+import { Layout } from '@components/Layout'
+import { Recipes } from '@components/Recipe'
 import { useQuery } from 'react-query'
-import { getAllRecipes } from '@/utils/api'
+import { getAllRecipes } from '@utils/api'
 
 const Index = () => {
   const { data: recipes, error, isLoading, isError } = useQuery(

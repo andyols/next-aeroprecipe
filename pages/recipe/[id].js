@@ -1,6 +1,6 @@
-import { Layout } from '@/components/Layout'
+import { Layout } from '@components/Layout'
 import { Stack, Heading, Text } from '@chakra-ui/react'
-import { findRecipe } from '@/utils/queries'
+import { findRecipe } from '@utils/queries'
 
 const Recipe = ({ recipe }) => {
   return (

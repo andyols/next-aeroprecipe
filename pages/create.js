@@ -1,5 +1,5 @@
-import { Layout } from '@/components/Layout'
-import { Form } from '@/components/Recipe'
+import { Layout } from '@components/Layout'
+import { Form } from '@components/Recipe'
 
 const Create = () => {
   return (
