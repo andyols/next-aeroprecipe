@@ -1,4 +1,4 @@
-import { createRecipe } from '@utils/queries'
+import { q_createRecipe } from '@utils/queries'
 
 export default async (req, res) => {
   if (req.method !== 'POST')
@@ -16,7 +16,7 @@ export default async (req, res) => {
   } = req.body
 
   try {
-    const { data } = await createRecipe({
+    const { data } = await q_createRecipe({
       title,
       creator,
       method,

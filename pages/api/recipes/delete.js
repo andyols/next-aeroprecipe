@@ -1,4 +1,4 @@
-import { deleteRecipe } from '@utils/queries'
+import { q_deleteRecipe } from '@utils/queries'
 
 export default async (req, res) => {
   if (req.method !== 'DELETE')
@@ -7,7 +7,7 @@ export default async (req, res) => {
   const { id } = req.body
 
   try {
-    const { ref } = await deleteRecipe(id)
+    const { ref } = await q_deleteRecipe(id)
     return res.status(200).json({ msg: `Recipe ${ref.id} deleted` })
   } catch (err) {
     console.error(err)

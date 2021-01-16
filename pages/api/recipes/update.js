@@ -1,4 +1,4 @@
-import { updateRecipe } from '@utils/queries'
+import { q_updateRecipe } from '@utils/queries'
 
 export default async (req, res) => {
   if (req.method !== 'PUT')
@@ -17,7 +17,7 @@ export default async (req, res) => {
   } = req.body
 
   try {
-    const { data } = await updateRecipe({
+    const { data } = await q_updateRecipe({
       id,
       title,
       creator,
