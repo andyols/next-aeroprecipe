@@ -4,7 +4,7 @@ import { findRecipe } from '@/utils/queries'
 
 const Recipe = ({ recipe }) => {
   return (
-    <Layout title={'Welcome to AeroPrecipe'}>
+    <Layout title={recipe.title} align='center' textAlign='center'>
       <Stack spacing={2}>
         <Heading>{recipe.title}</Heading>
         <Text pb={3}>{recipe.creator}</Text>

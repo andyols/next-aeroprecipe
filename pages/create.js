@@ -1,9 +1,9 @@
 import { Layout } from '@/components/Layout'
-import { Form } from '@/components/Recipes'
+import { Form } from '@/components/Recipe'
 
 const Create = () => {
   return (
-    <Layout align='center'>
+    <Layout title='New Recipe' align='center'>
       <Form />
     </Layout>
   )
