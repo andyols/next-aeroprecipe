@@ -15,7 +15,7 @@ const RecipeFormInput = forwardRef((props, ref) => {
     <FormControl id={id} isInvalid={!!error}>
       <FormLabel>{label}</FormLabel>
       <InputGroup>
-        <Input ref={ref} name={id} placeholder={placeholder} />
+        <Input ref={ref} name={id} placeholder={placeholder} label={id} />
         {addon && <InputRightAddon children={addon} />}
       </InputGroup>
       {help && <FormHelperText>{help}</FormHelperText>}

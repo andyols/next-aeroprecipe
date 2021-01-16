@@ -35,6 +35,7 @@ const Header = props => {
           isChecked={colorMode === 'dark'}
           onChange={toggleColorMode}
           colorScheme='green'
+          aria-label='toggle theme'
         />
       </Flex>
     </Flex>
