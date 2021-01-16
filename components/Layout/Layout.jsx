@@ -13,7 +13,6 @@ const Layout = props => {
       minH='100vh'
       bg={bgColor[colorMode]}
       color={color[colorMode]}
-      {...props}
     >
       <Head>
         <title>{props.title}</title>
