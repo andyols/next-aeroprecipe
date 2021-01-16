@@ -1,4 +1,4 @@
-import { Heading, Stack, Text } from '@chakra-ui/react'
+import { Divider, Heading, Spinner, Stack, Text } from '@chakra-ui/react'
 import { Layout } from '@components/Layout'
 import { Recipes } from '@components/Recipe'
 import { useQuery } from 'react-query'
@@ -11,7 +11,7 @@ const Index = () => {
   )
 
   const GeneratedRecipes = () => {
-    if (isLoading) return <Text>Loading...</Text>
+    if (isLoading) return <Spinner size='xl' alignSelf='center' />
     if (isError) return <Text>{error}</Text>
     return <Recipes recipes={recipes.data} />
   }
@@ -20,6 +20,7 @@ const Index = () => {
     <Layout title={'Welcome to AeroPrecipe'}>
       <Stack spacing={2}>
         <Heading>Welcome to AeroPrecipe!</Heading>
+        <Divider />
         <Text pb={3}>Browse and create new Aeropress recipes</Text>
         {<GeneratedRecipes />}
       </Stack>
