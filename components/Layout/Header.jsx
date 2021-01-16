@@ -11,7 +11,6 @@ import Link from 'next/link'
 
 const Header = props => {
   const { colorMode, toggleColorMode } = useColorMode()
-  const isDark = colorMode === 'dark'
   return (
     <Flex w='100%' py={3} px={6} borderBottom='1px' as='header' {...props}>
       <Link href='/'>
@@ -28,7 +27,7 @@ const Header = props => {
         </Link>
         <Switch
           pl={4}
-          isChecked={isDark}
+          isChecked={colorMode === 'dark'}
           onChange={toggleColorMode}
           colorScheme='green'
         />

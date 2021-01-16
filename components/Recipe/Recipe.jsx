@@ -6,18 +6,17 @@ import {
   Tag,
   Text,
   Stack,
-  useColorMode,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import { ArrowForwardIcon, DeleteIcon, EditIcon } from '@chakra-ui/icons'
 import { useMutation } from 'react-query'
 import { useQueryClient } from 'react-query'
-import { deleteRecipe } from '@/utils/api'
+import { deleteRecipe } from '@utils/api'
 import Link from 'next/link'
 
 const Recipe = ({ recipe }) => {
-  const { colorMode } = useColorMode()
   const queryCache = useQueryClient()
-  const typography = { light: 'gray.600', dark: 'gray.400' }
+  const subtleText = useColorModeValue('gray.600', 'gray.400')
 
   const { mutateAsync, isLoading } = useMutation(deleteRecipe)
 
@@ -43,7 +42,7 @@ const Recipe = ({ recipe }) => {
       <Flex justify='space-between'>
         <Flex direction='column'>
           <Text fontWeight='medium'>{title}</Text>
-          <Text fontSize='sm' color={typography[colorMode]}>
+          <Text fontSize='sm' color={subtleText}>
             {creator ? `${creator} - ${method}` : `${method}`}
           </Text>
         </Flex>

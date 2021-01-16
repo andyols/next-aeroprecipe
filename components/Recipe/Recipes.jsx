@@ -1,13 +1,12 @@
-import { Box, Stack, useColorMode } from '@chakra-ui/react'
+import { Box, Stack, useColorModeValue } from '@chakra-ui/react'
 import { Recipe } from '.'
 
 const Recipes = ({ recipes }) => {
-  const { colorMode } = useColorMode()
-  const bg = { light: 'gray.50', dark: 'gray.700' }
+  const bg = useColorModeValue('gray.50', 'gray.700')
   return (
     <Stack>
       {recipes.map(r => (
-        <Box bg={bg[colorMode]} borderRadius='md' boxShadow='base' key={r.id}>
+        <Box bg={bg} borderRadius='md' boxShadow='base' key={r.id}>
           <Recipe recipe={r} />
         </Box>
       ))}

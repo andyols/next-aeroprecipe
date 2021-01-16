@@ -1,26 +1,19 @@
 import Head from 'next/head'
-import { Flex, useColorMode } from '@chakra-ui/react'
+import { Flex, useColorModeValue } from '@chakra-ui/react'
 import { Header, Container, Footer } from '.'
 
 const Layout = ({ title, children, ...rest }) => {
-  const { colorMode } = useColorMode()
-  const bgColor = { light: 'gray.100', dark: 'gray.800' }
-  const color = { light: 'black', dark: 'gray.100' }
-  const borderColor = { light: 'gray.200', dark: 'gray.700' }
+  const bg = useColorModeValue('gray.100', 'gray.800')
+  const color = useColorModeValue('black', 'gray.100')
+  const borderColor = useColorModeValue('gray.200', 'gray.700')
   return (
-    <Flex
-      direction='column'
-      minH='100vh'
-      bg={bgColor[colorMode]}
-      color={color[colorMode]}
-      {...rest}
-    >
+    <Flex direction='column' minH='100vh' bg={bg} color={color} {...rest}>
       <Head>
         <title>{title}</title>
         <link rel='icon' href='/favicon.png' />
       </Head>
 
-      <Header borderColor={borderColor[colorMode]} />
+      <Header borderColor={borderColor} />
 
       <Container
         px={5}
@@ -31,9 +24,7 @@ const Layout = ({ title, children, ...rest }) => {
         {children}
       </Container>
 
-      <Footer borderColor={borderColor[colorMode]}>
-        Made with Next.js + chakra
-      </Footer>
+      <Footer borderColor={borderColor}>Made with Next.js + chakra</Footer>
     </Flex>
   )
 }
