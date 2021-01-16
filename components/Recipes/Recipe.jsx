@@ -22,19 +22,29 @@ const Recipe = ({ recipe }) => {
   const { mutateAsync, isLoading } = useMutation(deleteRecipe)
 
   const handleDelete = async () => {
-    await mutateAsync(recipe._id)
+    await mutateAsync(recipe.id)
     queryCache.invalidateQueries('recipes')
   }
+
+  const id = recipe.id
+  const {
+    title,
+    creator,
+    method,
+    coffee,
+    grind,
+    water,
+    temperature,
+    time,
+  } = recipe.data
 
   return (
     <Box flex='1' textAlign='left' p={3}>
       <Flex justify='space-between'>
         <Flex direction='column'>
-          <Text fontWeight='medium'>{recipe.title}</Text>
+          <Text fontWeight='medium'>{title}</Text>
           <Text fontSize='sm' color={typography[colorMode]}>
-            {recipe.creator
-              ? `${recipe.creator} - ${recipe.method}`
-              : `${recipe.method}`}
+            {creator ? `${creator} - ${method}` : `${method}`}
           </Text>
         </Flex>
 
@@ -57,22 +67,22 @@ const Recipe = ({ recipe }) => {
 
       <Flex flexWrap='wrap' mt={1}>
         <Tag my={1} mx={2} ml={0} size='sm' borderRadius='full'>
-          {recipe.coffee}g ☕
+          {coffee}g ☕
         </Tag>
         <Tag my={1} mx={2} ml={0} size='sm' borderRadius='full'>
-          {recipe.grind} ⚙️
+          {grind} ⚙️
         </Tag>
         <Tag my={1} mx={2} ml={0} size='sm' borderRadius='full'>
-          {recipe.water}mL 💧
+          {water}mL 💧
         </Tag>
         <Tag my={1} mx={2} ml={0} size='sm' borderRadius='full'>
-          {recipe.temperature}c 🌡️
+          {temperature}c 🌡️
         </Tag>
         <Tag my={1} mx={2} ml={0} size='sm' borderRadius='full'>
-          {recipe.time}s ⏱️
+          {time}s ⏱️
         </Tag>
       </Flex>
-      <Link href={`/recipe/${recipe._id}`}>
+      <Link href={`/recipe/${id}`}>
         <Button
           mt={3}
           variant='link'

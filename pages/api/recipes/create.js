@@ -1,5 +1,4 @@
-import { CREATE_RECIPE } from '@/utils/queries'
-import query from '@/utils/query'
+import { createRecipe } from '@/utils/queries'
 
 export default async (req, res) => {
   if (req.method !== 'POST')
@@ -17,7 +16,7 @@ export default async (req, res) => {
   } = req.body
 
   try {
-    const { createRecipe: createdRecipe } = await query(CREATE_RECIPE, {
+    const { data } = await createRecipe({
       title,
       creator,
       method,
@@ -27,7 +26,7 @@ export default async (req, res) => {
       temperature,
       time,
     })
-    return res.status(200).json(createdRecipe)
+    return res.status(200).json(data)
   } catch (err) {
     console.error(err)
     return res.status(500).json({ msg: 'Something went wrong' })

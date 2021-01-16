@@ -7,7 +7,7 @@ const Recipes = ({ recipes }) => {
   return (
     <Stack>
       {recipes.map(r => (
-        <Box bg={bg[colorMode]} borderRadius='md' boxShadow='base' key={r._id}>
+        <Box bg={bg[colorMode]} borderRadius='md' boxShadow='base' key={r.id}>
           <Recipe recipe={r} />
         </Box>
       ))}
