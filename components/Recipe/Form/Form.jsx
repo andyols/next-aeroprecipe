@@ -6,27 +6,42 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useMutation } from 'react-query'
 import { useQueryClient } from 'react-query'
-import { createRecipe } from '@utils/api'
+import { createRecipe, updateRecipe } from '@utils/api'
 import { schema } from '@lib/schema'
 
-const RecipeForm = () => {
+const RecipeForm = ({ recipe }) => {
   const router = useRouter()
   const queryCache = useQueryClient()
 
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema),
+    defaultValues: {
+      title: recipe ? recipe.title : '',
+      creator: recipe ? recipe.creator : '',
+      method: recipe ? recipe.method : 'Standard',
+      coffee: recipe ? recipe.coffee : 15,
+      grind: recipe ? recipe.grind : 'Medium',
+      water: recipe ? recipe.water : 200,
+      temperature: recipe ? recipe.temperature : 95,
+      time: recipe ? recipe.time : 120,
+    },
   })
-  const { mutateAsync, isLoading } = useMutation(createRecipe)
 
-  const create = async data => {
-    await mutateAsync(data)
+  const create = useMutation(createRecipe)
+  const update = useMutation(updateRecipe)
+  const isLoading = create.isLoading || update.isLoading
+
+  const submit = async data => {
+    recipe
+      ? await update.mutateAsync({ ...data, id: recipe.id })
+      : await create.mutateAsync(data)
     queryCache.invalidateQueries('recipes')
     router.push('/')
   }
 
   return (
-    <form onSubmit={handleSubmit(create)}>
+    <form onSubmit={handleSubmit(submit)}>
       <Stack spacing={4}>
         <FormInput
           ref={register}
@@ -59,7 +74,6 @@ const RecipeForm = () => {
             id='coffee'
             label='How much coffee?'
             addon='g'
-            defaultValue={15}
             min={5}
             max={50}
             error={errors.coffee}
@@ -83,7 +97,6 @@ const RecipeForm = () => {
             id='water'
             label='How much water?'
             addon='mL'
-            defaultValue={200}
             min={10}
             max={300}
             step={5}
@@ -94,7 +107,6 @@ const RecipeForm = () => {
             id='temperature'
             label='How hot?'
             addon='°C'
-            defaultValue={100}
             min={0}
             max={100}
             help='Or cold, depends on your perspective'
@@ -106,9 +118,8 @@ const RecipeForm = () => {
           id='time'
           label='About how long will the brew take?'
           addon='seconds'
-          defaultValue={90}
           min={10}
-          max={1200}
+          max={3600}
           step={10}
           help='A rough estimate here will be fine :)'
           error={errors.time}
@@ -124,7 +135,7 @@ const RecipeForm = () => {
             isLoading={isLoading}
             loadingText='Creating'
           >
-            Create!
+            {recipe ? 'Update!' : 'Create!'}
           </Button>
         </Stack>
       </Stack>

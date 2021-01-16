@@ -1,16 +1,33 @@
-import { Box, Stack, useColorModeValue } from '@chakra-ui/react'
+import { Box, Stack, useColorModeValue, Text, Link } from '@chakra-ui/react'
 import { Recipe } from '.'
+import { Link as NextLink } from 'next/link'
 
 const Recipes = ({ recipes }) => {
   const bg = useColorModeValue('gray.50', 'gray.700')
-  return (
+  const subtleText = useColorModeValue('gray.700', 'gray.300')
+  return recipes ? (
     <Stack>
       {recipes.map(r => (
-        <Box bg={bg} borderRadius='md' boxShadow='base' key={r.id}>
-          <Recipe recipe={r} />
+        <Box bg={bg} borderRadius='md' boxShadow='base' key={r.data.id}>
+          <Recipe recipe={r.data} />
         </Box>
       ))}
     </Stack>
+  ) : (
+    <Box bg={bg} px={3} py={1} boxShadow='base' borderRadius='md'>
+      <Text color={subtleText}>
+        Well, this is awkward... thered are no recipes the moment. Maybe you
+        could fix that by clicking{' '}
+        <Link
+          as={NextLink}
+          color='teal.300'
+          href='/recipe/create'
+          onMouseDown={e => e.preventDefault()}
+        >
+          here!
+        </Link>
+      </Text>
+    </Box>
   )
 }
 

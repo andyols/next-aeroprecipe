@@ -14,14 +14,13 @@ import {
 import { forwardRef } from 'react'
 
 const FormNumberInput = forwardRef((props, ref) => {
-  const { id, label, error, help, addon, defaultValue, min, max, step } = props
+  const { id, label, error, help, addon, min, max, step } = props
   return (
     <FormControl id={id} isInvalid={!!error}>
       <FormLabel>{label}</FormLabel>
       <InputGroup>
         <NumberInput
           w='100%'
-          defaultValue={defaultValue}
           min={min}
           max={max}
           step={step}

@@ -20,13 +20,8 @@ const Recipe = ({ recipe }) => {
 
   const { mutateAsync, isLoading } = useMutation(deleteRecipe)
 
-  const handleDelete = async () => {
-    await mutateAsync(recipe.id)
-    queryCache.invalidateQueries('recipes')
-  }
-
-  const id = recipe.id
   const {
+    id,
     title,
     creator,
     method,
@@ -35,7 +30,12 @@ const Recipe = ({ recipe }) => {
     water,
     temperature,
     time,
-  } = recipe.data
+  } = recipe
+
+  const handleDelete = async () => {
+    await mutateAsync(id)
+    queryCache.invalidateQueries('recipes')
+  }
 
   return (
     <Box flex='1' textAlign='left' p={3}>
@@ -48,12 +48,14 @@ const Recipe = ({ recipe }) => {
         </Flex>
 
         <Stack direction='row' spacing={0} m={-3}>
-          <IconButton
-            variant='ghost'
-            aria-label='Edit Recipe'
-            icon={<EditIcon />}
-            onMouseDown={e => e.preventDefault()}
-          />
+          <Link href={`/recipe/edit/${id}`}>
+            <IconButton
+              variant='ghost'
+              aria-label='Edit Recipe'
+              icon={<EditIcon />}
+              onMouseDown={e => e.preventDefault()}
+            />
+          </Link>
           <IconButton
             variant='ghost'
             colorScheme='red'

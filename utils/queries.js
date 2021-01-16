@@ -10,15 +10,19 @@ export const q_getRecipes = async () => {
     )
   )
   const recipes = data.map(recipe => {
-    recipe.id = recipe.ref.id
+    recipe.data.id = recipe.ref.id
     delete recipe.ref
     return recipe
   })
   return recipes
 }
 
-export const q_findRecipe = async id =>
-  await client.query(q.Get(q.Ref(q.Collection('recipe'), id)))
+export const q_findRecipe = async id => {
+  let recipe = await client.query(q.Get(q.Ref(q.Collection('recipe'), id)))
+  recipe.data.id = recipe.ref.id
+  delete recipe.ref
+  return recipe
+}
 
 export const q_createRecipe = async data =>
   await client.query(q.Create(q.Collection('recipe'), { data }))
@@ -26,5 +30,8 @@ export const q_createRecipe = async data =>
 export const q_deleteRecipe = async id =>
   await client.query(q.Delete(q.Ref(q.Collection('recipe'), id)))
 
-export const q_updateRecipe = async data =>
-  await client.query(q.Update(q.Ref(q.Collection('recipe'), data.id), { data }))
+export const q_updateRecipe = async data => {
+  return await client.query(
+    q.Update(q.Ref(q.Collection('recipe'), data.id), { data })
+  )
+}

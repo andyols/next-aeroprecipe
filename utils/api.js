@@ -11,6 +11,13 @@ export const createRecipe = async data =>
     data,
   })
 
+export const updateRecipe = async data =>
+  await axios({
+    url: '/api/recipes/update',
+    method: 'PUT',
+    data,
+  })
+
 export const deleteRecipe = async id =>
   await axios({
     url: '/api/recipes/delete',
