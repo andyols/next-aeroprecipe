@@ -1,5 +1,5 @@
 import { Button, Stack, useBreakpointValue } from '@chakra-ui/react'
-import { FormInput, FormNumberInput, FormSelect } from '.'
+import { FormInput, FormNumberInput, FormSelect } from '..'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
