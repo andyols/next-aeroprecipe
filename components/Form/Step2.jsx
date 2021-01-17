@@ -9,7 +9,7 @@ import { createRecipe, updateRecipe } from '@utils/api'
 import { useStateMachine } from 'little-state-machine'
 import updateForm from '@utils/updateForm'
 import Link from 'next/link'
-import { AddIcon, MinusIcon } from '@chakra-ui/icons'
+import { AddIcon, CheckIcon, MinusIcon } from '@chakra-ui/icons'
 
 const Step2 = ({ recipe }) => {
   const queryCache = useQueryClient()
@@ -19,20 +19,46 @@ const Step2 = ({ recipe }) => {
     actions,
   } = useStateMachine({ updateForm })
 
-  const addStep = () => actions.updateForm(form.steps.push({ value: '' }))
-  const removeStep = step => actions.updateForm(form.steps.pop())
-
-  const { register, handleSubmit, errors } = useForm({
+  const { handleSubmit, register, errors, getValues } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema),
-    defaultValues: form.steps.map((step, i, arr) => ({
-      i: form.steps[i].value,
-    })),
+    defaultValues: [...form.steps],
   })
 
   const create = useMutation(createRecipe)
   const update = useMutation(updateRecipe)
   const isLoading = create.isLoading || update.isLoading
+
+  const add = () => {
+    const payload = {
+      ...form,
+      steps: [...form.steps, ''],
+    }
+    actions.updateForm(payload)
+  }
+
+  const remove = () => {
+    const payload = {
+      ...form,
+      steps: [
+        ...form.steps.slice(0, form.steps.length - 1),
+        ...form.steps.slice(form.steps.length - 1 + 1),
+      ],
+    }
+    actions.updateForm(payload)
+  }
+
+  const back = () => {
+    // router.push('/recipe/create/step1')
+  }
+
+  const save = () => {
+    const payload = {
+      ...form,
+      steps: Object.values(getValues()),
+    }
+    actions.updateForm(payload)
+  }
 
   const submit = async data => {
     recipe
@@ -42,40 +68,40 @@ const Step2 = ({ recipe }) => {
     router.push('/')
   }
 
-  const back = data => {
-    router.push('/recipe/create/step1')
-  }
-
   return (
     <FormWrapper onSubmit={handleSubmit(submit)}>
       <Stack spacing={4}>
         <Stack isInline pt={2} justify='space-between'>
           <IconButton
-            onClick={addStep}
+            onClick={remove}
+            icon={<MinusIcon />}
+            colorScheme='red'
+            type='button'
+            disabled={form.steps.length <= 1}
+          />
+          <Button rightIcon={<CheckIcon />} onClick={save}>
+            Save
+          </Button>
+          <IconButton
+            onClick={add}
             icon={<AddIcon />}
             colorScheme='green'
+            type='button'
           />
-          {form.steps.length > 1 && (
-            <IconButton
-              onClick={removeStep}
-              icon={<MinusIcon />}
-              colorScheme='red'
-            />
-          )}
         </Stack>
-        {form.steps.map((step, i) => (
+        {form.steps.map((_, i) => (
           <FormTextarea
             key={i}
             ref={register}
-            id={`step${i + 1}`}
+            id={i}
             label={`Step ${i + 1}`}
             placeholder='Enter instructions here'
           />
         ))}
         <Stack isInline pt={2} justify='space-between'>
-          <Link href='/recipe/create/step1'>
-            <Button w='40%'>Back</Button>
-          </Link>
+          <Button w='40%' onClick={back} type='button'>
+            Back
+          </Button>
           <Button
             w='40%'
             colorScheme='green'
