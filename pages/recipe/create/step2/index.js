@@ -1,10 +1,14 @@
 import { Layout } from '@components/Layout'
-import { Step2 } from '@components/Form'
+import dynamic from 'next/dynamic'
+
+const DynamicForm = dynamic(() => import('@components/Form/Step2'), {
+  ssr: false,
+})
 
 export default function Page() {
   return (
     <Layout title='New Recipe' align='center'>
-      <Step2 />
+      <DynamicForm />
     </Layout>
   )
 }
