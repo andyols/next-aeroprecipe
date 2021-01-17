@@ -133,7 +133,7 @@ const RecipeForm = ({ recipe }) => {
             colorScheme='green'
             type='submit'
             isLoading={isLoading}
-            loadingText='Creating'
+            loadingText='Submitting...'
           >
             {recipe ? 'Update!' : 'Create!'}
           </Button>

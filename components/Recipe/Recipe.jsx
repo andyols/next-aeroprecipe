@@ -7,8 +7,17 @@ import {
   Text,
   Stack,
   useColorModeValue,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from '@chakra-ui/react'
-import { ArrowForwardIcon, DeleteIcon, EditIcon } from '@chakra-ui/icons'
+import {
+  ArrowForwardIcon,
+  DeleteIcon,
+  EditIcon,
+  HamburgerIcon,
+} from '@chakra-ui/icons'
 import { useMutation } from 'react-query'
 import { useQueryClient } from 'react-query'
 import { deleteRecipe } from '@utils/api'
@@ -41,31 +50,34 @@ const Recipe = ({ recipe }) => {
     <Box flex='1' textAlign='left' p={3}>
       <Flex justify='space-between'>
         <Flex direction='column'>
-          <Text fontWeight='medium'>{title}</Text>
+          <Text fontWeight='medium' fontSize='lg'>
+            {title}
+          </Text>
           <Text fontSize='sm' color={subtleText}>
             {creator ? `${creator} - ${method}` : `${method}`}
           </Text>
         </Flex>
 
-        <Stack direction='row' spacing={0} m={-3}>
-          <Link href={`/recipe/edit/${id}`}>
-            <IconButton
-              variant='ghost'
-              aria-label='Edit Recipe'
-              icon={<EditIcon />}
-              onMouseDown={e => e.preventDefault()}
-            />
-          </Link>
-          <IconButton
+        <Menu placement='left-start'>
+          <MenuButton
+            m={-3}
+            as={IconButton}
+            icon={<HamburgerIcon />}
             variant='ghost'
-            colorScheme='red'
-            aria-label='Delete Recipe'
-            icon={<DeleteIcon />}
-            onClick={handleDelete}
+            size='lg'
             isLoading={isLoading}
-            onMouseDown={e => e.preventDefault()}
           />
-        </Stack>
+          <MenuList>
+            <Link href={`/recipe/edit/${id}`}>
+              <MenuItem icon={<EditIcon w={5} h={5} />}>
+                <Text>Edit</Text>
+              </MenuItem>
+            </Link>
+            <MenuItem icon={<DeleteIcon w={5} h={5} />} onClick={handleDelete}>
+              Delete
+            </MenuItem>
+          </MenuList>
+        </Menu>
       </Flex>
 
       <Flex flexWrap='wrap' mt={1}>
@@ -89,7 +101,6 @@ const Recipe = ({ recipe }) => {
         <Button
           mt={3}
           variant='link'
-          size='sm'
           colorScheme='teal'
           rightIcon={<ArrowForwardIcon />}
           onMouseDown={e => e.preventDefault()}
