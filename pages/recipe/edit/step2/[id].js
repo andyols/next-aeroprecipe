@@ -1,14 +1,11 @@
 import { Layout } from '@components/Layout'
-import { Step1 } from '@components/Recipe'
+import { Step2 } from '@components/Form'
 import { q_findRecipe } from '@utils/queries'
-import { FormContextProvider } from '@components/Recipe/Form/FormContext'
 
-const Edit = ({ recipe }) => {
+export default function Page({ recipe }) {
   return (
     <Layout title={`Edit - ${recipe.title}`} align='center'>
-      <FormContextProvider>
-        <Step1 recipe={recipe} />
-      </FormContextProvider>
+      <Step2 recipe={recipe} />
     </Layout>
   )
 }
@@ -23,5 +20,3 @@ export async function getServerSideProps({ params: { id } }) {
     return { notFound: true }
   }
 }
-
-export default Edit

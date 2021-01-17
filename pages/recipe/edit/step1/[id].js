@@ -1,14 +1,11 @@
 import { Layout } from '@components/Layout'
-import { Stack, Heading, Text } from '@chakra-ui/react'
+import { Step1 } from '@components/Form'
 import { q_findRecipe } from '@utils/queries'
 
 export default function Page({ recipe }) {
   return (
-    <Layout title={recipe.title} align='center' textAlign='center'>
-      <Stack spacing={2}>
-        <Heading>{recipe.title}</Heading>
-        <Text pb={3}>{recipe.creator}</Text>
-      </Stack>
+    <Layout title={`Edit - ${recipe.title}`} align='center'>
+      <Step1 recipe={recipe} />
     </Layout>
   )
 }
@@ -23,5 +20,3 @@ export async function getServerSideProps({ params: { id } }) {
     return { notFound: true }
   }
 }
-
-export default Recipe

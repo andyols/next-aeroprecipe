@@ -4,7 +4,7 @@ import { Recipes } from '@components/Recipe'
 import { useQuery } from 'react-query'
 import { getAllRecipes } from '@utils/api'
 
-const Index = () => {
+export default function Homepage() {
   const { data: recipes, error, isLoading, isError } = useQuery(
     'recipes',
     getAllRecipes
@@ -27,5 +27,3 @@ const Index = () => {
     </Layout>
   )
 }
-
-export default Index
