@@ -23,5 +23,3 @@ export async function getServerSideProps({ params: { id } }) {
     return { notFound: true }
   }
 }
-
-export default Recipe
