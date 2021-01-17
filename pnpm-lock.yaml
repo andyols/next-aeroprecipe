@@ -7,6 +7,8 @@ dependencies:
   axios: 0.21.1
   faunadb: 4.0.0
   framer-motion: 2.9.5_react-dom@17.0.1+react@17.0.1
+  little-state-machine: 4.0.0_react@17.0.1
+  little-state-machine-devtools: 1.0.0_a447e1cd9a90f3d35cbfe6905d2796c1
   next: 10.0.5_react-dom@17.0.1+react@17.0.1
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
@@ -1443,6 +1445,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
+  /asap/2.0.6:
+    dev: false
+    resolution:
+      integrity: sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
   /asn1.js/5.4.1:
     dependencies:
       bn.js: 4.11.9
@@ -1532,6 +1538,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-5T6P4xPgpp0YDFvSWwEZ4NoE3aM4QBQXDzmVbraCkFj8zHM+mba8SyqB5DbZWyR7mYHo6Y7BdQo3MoA4m0TeQg==
+  /base16/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-4pf2DX7BAUp6lxo568ipjAtoHnA=
   /base64-js/1.5.1:
     dev: false
     resolution:
@@ -1674,8 +1684,8 @@ packages:
       integrity: sha512-Z942RysHXmJrhqk88FmKBVq/v5tqmSkDz7p54G/MGyjMnCFFnC79XWNbg+Vta8W6Wb2qtSZTSxIGkJrRpCFEiA==
   /browserslist/4.14.6:
     dependencies:
-      caniuse-lite: 1.0.30001177
-      electron-to-chromium: 1.3.639
+      caniuse-lite: 1.0.30001178
+      electron-to-chromium: 1.3.641
       escalade: 3.1.1
       node-releases: 1.1.69
     dev: false
@@ -1775,10 +1785,10 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-c7wVvbw3f37nuobQNtgsgG9POC9qMbNuMQmTCqZv23b6MIz0fcYpBiOlv9gEN/hdLdnZTDQhg6e9Dq5M1vKvfg==
-  /caniuse-lite/1.0.30001177:
+  /caniuse-lite/1.0.30001178:
     dev: false
     resolution:
-      integrity: sha512-6Ld7t3ifCL02jTj3MxPMM5wAYjbo4h/TAQGFTgv1inihP1tWnWp8mxxT4ut4JBEHLbpFXEXJJQ119JCJTBkYDw==
+      integrity: sha512-VtdZLC0vsXykKni8Uztx45xynytOi71Ufx9T8kHptSw9AL4dpqailUJJHavttuzUe1KYuBYtChiWv+BAb7mPmQ==
   /chalk/2.4.2:
     dependencies:
       ansi-styles: 3.2.1
@@ -2009,6 +2019,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw==
+  /core-js/1.2.7:
+    deprecated: core-js@<3 is no longer maintained and not recommended for usage due to the number of issues. Please, upgrade your dependencies to the actual version of core-js@3.
+    dev: false
+    resolution:
+      integrity: sha1-ZSKUwUZR2yj6k70tX/KYOk8IxjY=
   /core-util-is/1.0.2:
     dev: false
     resolution:
@@ -2131,7 +2146,7 @@ packages:
       integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
   /cssnano-preset-simple/1.2.1:
     dependencies:
-      caniuse-lite: 1.0.30001177
+      caniuse-lite: 1.0.30001178
       postcss: 7.0.32
     dev: false
     resolution:
@@ -2337,10 +2352,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-07z8uv2wMyS51kKhD1KsdXJg5WQ6t93RneqRxUHnskXVtlYYkLqM0gqStQZ3pj073g687jPCHrqNfCzawLYh5g==
-  /electron-to-chromium/1.3.639:
+  /electron-to-chromium/1.3.641:
     dev: false
     resolution:
-      integrity: sha512-bwl6/U6xb3d3CNufQU9QeO1L32ueouFwW4bWANSwdXR7LVqyLzWjNbynoKNfuC38QFB5Qn7O0l2KLqBkcXnC3Q==
+      integrity: sha512-b0DLhsHSHESC1I+Nx6n4w4Lr61chMd3m/av1rZQhS2IXTzaS5BMM5N+ldWdMIlni9CITMRM09m8He4+YV/92TA==
   /elliptic/6.5.3:
     dependencies:
       bn.js: 4.11.9
@@ -2365,6 +2380,12 @@ packages:
       node: '>= 4'
     resolution:
       integrity: sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==
+  /encoding/0.1.13:
+    dependencies:
+      iconv-lite: 0.6.2
+    dev: false
+    resolution:
+      integrity: sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==
   /end-of-stream/1.4.4:
     dependencies:
       once: 1.4.0
@@ -2580,6 +2601,24 @@ packages:
     dev: false
     resolution:
       integrity: sha512-tXiGthGdbInZ6hzdmGFxnxqsQe2mKq+pnOc+zHZYXtD8TDgKWpK0F9M0tmRpD0uoQUrBHzXU7hxE24pJJxPdbQ==
+  /fbemitter/2.1.1:
+    dependencies:
+      fbjs: 0.8.17
+    dev: false
+    resolution:
+      integrity: sha1-Uj4U/a9SSIBbsC9i78M75wP1GGU=
+  /fbjs/0.8.17:
+    dependencies:
+      core-js: 1.2.7
+      isomorphic-fetch: 2.2.1
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      promise: 7.3.1
+      setimmediate: 1.0.5
+      ua-parser-js: 0.7.23
+    dev: false
+    resolution:
+      integrity: sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
   /figgy-pudding/3.5.2:
     dev: false
     resolution:
@@ -2656,6 +2695,16 @@ packages:
     dev: false
     resolution:
       integrity: sha512-3Z4XhFZ3992uIq0XOqb9AreonueSYphE6oYbpt5+3u06JWklbsPkNv3ZKkP9Bz/r+1MWCaMoSQ28P85+1Yc77w==
+  /flux/3.1.3_react@17.0.1:
+    dependencies:
+      fbemitter: 2.1.1
+      fbjs: 0.8.17
+      react: 17.0.1
+    dev: false
+    peerDependencies:
+      react: ^15.0.2 || ^16.0.0-beta || ^16.0.0
+    resolution:
+      integrity: sha1-0jvtUVp5oi2TOrU6tK2hnQWy8Io=
   /fn-annotate/1.2.0:
     dev: false
     engines:
@@ -2975,6 +3024,14 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
+  /iconv-lite/0.6.2:
+    dependencies:
+      safer-buffer: 2.1.2
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-2y91h5OpQlolefMPmUlivelittSWy0rP+oYVpn6A7GwVHNE8AWzoYOBNmlwks3LobaJxgHCYZAnyNo2GgpNRNQ==
   /icss-utils/4.1.1:
     dependencies:
       postcss: 7.0.32
@@ -3200,6 +3257,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==
+  /is-stream/1.1.0:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-EtSj3U5o4Lec6428hBc66A2RykQ=
   /is-windows/1.0.2:
     dev: false
     engines:
@@ -3230,6 +3293,13 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
+  /isomorphic-fetch/2.2.1:
+    dependencies:
+      node-fetch: 1.7.3
+      whatwg-fetch: 3.5.0
+    dev: false
+    resolution:
+      integrity: sha1-YRrhrPFPXoH3KVB0coGf6XM1WKk=
   /jest-worker/24.9.0:
     dependencies:
       merge-stream: 2.0.0
@@ -3316,6 +3386,33 @@ packages:
     dev: false
     resolution:
       integrity: sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
+  /little-state-machine-devtools/1.0.0_a447e1cd9a90f3d35cbfe6905d2796c1:
+    dependencies:
+      little-state-machine: 4.0.0_react@17.0.1
+      lodash.clonedeep: 4.5.0
+      lodash.isempty: 4.4.0
+      lodash.isequal: 4.5.0
+      lodash.isobject: 3.0.2
+      lodash.transform: 4.6.0
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+      react-json-view: 1.20.0_react-dom@17.0.1+react@17.0.1
+      react-simple-animate: 3.3.11_react-dom@17.0.1+react@17.0.1
+    dev: false
+    peerDependencies:
+      little-state-machine: ^3.0.0
+      react: ^16.8.0
+      react-dom: ^16.8.0
+    resolution:
+      integrity: sha512-qIZfEuvlbXkV4sw1BD88axcxQT6Ulx/Wc5q6moU3D66EC1Dv+RTucsy6uf+vIEaTrWQD6+CCENMaxcDolOzaWA==
+  /little-state-machine/4.0.0_react@17.0.1:
+    dependencies:
+      react: 17.0.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0 || ^17
+    resolution:
+      integrity: sha512-IsG03r81UpHzU/bFZu+F/KX2WTIpvKGyMxo1QBSym0wEsphp3JKJrMqxvIRvwPyscCxzt0nP40VROSby9VQf0w==
   /loader-runner/2.4.0:
     dev: false
     engines:
@@ -3363,6 +3460,30 @@ packages:
     dev: false
     resolution:
       integrity: sha512-JD1COMZsq8maT6mnuz1UMV0jvYD0E0aUsSOdrr1/nAG3dhqQXwRRgeW0cSqH1U43INKcqxaiVIQNOUDld7gRDA==
+  /lodash.clonedeep/4.5.0:
+    dev: false
+    resolution:
+      integrity: sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
+  /lodash.curry/4.1.1:
+    dev: false
+    resolution:
+      integrity: sha1-JI42By7ekGUB11lmIAqG2riyMXA=
+  /lodash.flow/3.5.0:
+    dev: false
+    resolution:
+      integrity: sha1-h79AKSuM+D5OjOGjrkIJ4gBxZ1o=
+  /lodash.isempty/4.4.0:
+    dev: false
+    resolution:
+      integrity: sha1-b4bL7di+TsmHvpqvM8loTbGzHn4=
+  /lodash.isequal/4.5.0:
+    dev: false
+    resolution:
+      integrity: sha1-QVxEePK8wwEgwizhDtMib30+GOA=
+  /lodash.isobject/3.0.2:
+    dev: false
+    resolution:
+      integrity: sha1-PI+41bW/S/kK4G4U8qUwpO2TXh0=
   /lodash.mergewith/4.6.2:
     dev: false
     resolution:
@@ -3371,6 +3492,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
+  /lodash.transform/4.6.0:
+    dev: false
+    resolution:
+      integrity: sha1-EjBkIvYzJK7YSD0/ODMrX2cFR6A=
   /lodash/4.17.20:
     dev: false
     resolution:
@@ -3647,7 +3772,7 @@ packages:
       babel-plugin-transform-react-remove-prop-types: 0.4.24
       browserslist: 4.14.6
       buffer: 5.6.0
-      caniuse-lite: 1.0.30001177
+      caniuse-lite: 1.0.30001178
       chalk: 2.4.2
       chokidar: 3.4.3
       crypto-browserify: 3.12.0
@@ -3715,6 +3840,13 @@ packages:
     optional: true
     resolution:
       integrity: sha512-flmrDNB06LIl5lywUz7YlNGZH/5p0M7W28k8hzd9Lshtdh1wshD2Y+U4h9LD6KObOy1f+fEVdgprPrEymjM5uw==
+  /node-fetch/1.7.3:
+    dependencies:
+      encoding: 0.1.13
+      is-stream: 1.1.0
+    dev: false
+    resolution:
+      integrity: sha512-NhZ4CsKx7cYm2vSrBAr2PvFOe6sWDf0UYLRqA6svUYg7+/TSfVAu49jYC4BvQ4Sms9SZgdqGBgroqfDhJdTyKQ==
   /node-fetch/2.6.1:
     dev: false
     engines:
@@ -4164,6 +4296,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-mEcocL8igTL8vdhoEputEsPAKeM=
+  /promise/7.3.1:
+    dependencies:
+      asap: 2.0.6
+    dev: false
+    resolution:
+      integrity: sha512-nolQXZ/4L+bP/UGlkfaIujX9BKxGwmQ9OT4mOt5yvy8iK1h3wqTEJCijzGANTCCl9nWjY41juyAn2K3Q1hLLTg==
   /prop-types/15.7.2:
     dependencies:
       loose-envify: 1.4.0
@@ -4227,6 +4365,10 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
+  /pure-color/1.3.0:
+    dev: false
+    resolution:
+      integrity: sha1-H+Bk+wrIUfDeYTIKi/eWg2Qi8z4=
   /querystring-es3/0.2.1:
     dev: false
     engines:
@@ -4278,6 +4420,15 @@ packages:
     optional: true
     resolution:
       integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==
+  /react-base16-styling/0.6.0:
+    dependencies:
+      base16: 1.0.0
+      lodash.curry: 4.1.1
+      lodash.flow: 3.5.0
+      pure-color: 1.3.0
+    dev: false
+    resolution:
+      integrity: sha1-7yFW1mz0E5aVyKFniGy2nqZgeSw=
   /react-clientside-effect/1.2.3_react@17.0.1:
     dependencies:
       '@babel/runtime': 7.12.5
@@ -4328,6 +4479,25 @@ packages:
     dev: false
     resolution:
       integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+  /react-json-view/1.20.0_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      flux: 3.1.3_react@17.0.1
+      react: 17.0.1
+      react-base16-styling: 0.6.0
+      react-dom: 17.0.1_react@17.0.1
+      react-lifecycles-compat: 3.0.4
+      react-textarea-autosize: 6.1.0_react@17.0.1
+    dev: false
+    peerDependencies:
+      node: ^10.23.0
+      react: ^17.0.0 || ^16.3.0 || ^15.5.4
+      react-dom: ^17.0.0 || ^16.3.0 || ^15.5.4
+    resolution:
+      integrity: sha512-H5S+sZMZ57bUY+ub9OZ+yrJ0fsyRblIPKn0LCdaBIB67FvxGZ9W0I1lJgBEUDmH094qpqxAIl6pLn6J58ZMkdA==
+  /react-lifecycles-compat/3.0.4:
+    dev: false
+    resolution:
+      integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
   /react-query/3.5.12_react-dom@17.0.1+react@17.0.1:
     dependencies:
       '@babel/runtime': 7.12.5
@@ -4387,6 +4557,16 @@ packages:
         optional: true
     resolution:
       integrity: sha512-BZIO3GaEs0Or1OhA5C//n1ibUP1HdjJmqUVUsOCMxwoIpaCocbB9TFKwHOkBa/nyYy3slirqXeiPYGwdSDiseA==
+  /react-simple-animate/3.3.11_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0
+      react-dom: ^16.8.0
+    resolution:
+      integrity: sha512-kt2SKJ4Gw3klTmRbik/9R741fPiVRVlxkXvV0c3uu8NqOtdc5ITis62WcdiKH6U5QhCjXNfLW9lrbQ4cAYujyA==
   /react-style-singleton/2.1.1_react@17.0.1:
     dependencies:
       get-nonce: 1.0.1
@@ -4404,6 +4584,15 @@ packages:
         optional: true
     resolution:
       integrity: sha512-jNRp07Jza6CBqdRKNgGhT3u9umWvils1xsuMOjZlghBDH2MU0PL2WZor4PGYjXpnRCa9DQSlHMs/xnABWOwYbA==
+  /react-textarea-autosize/6.1.0_react@17.0.1:
+    dependencies:
+      prop-types: 15.7.2
+      react: 17.0.1
+    dev: false
+    peerDependencies:
+      react: '>=0.14.0 <17.0.0'
+    resolution:
+      integrity: sha512-F6bI1dgib6fSvG8so1HuArPUv+iVEfPliuLWusLF+gAKz0FbB4jLrWUrTAeq1afnPT2c9toEZYUdz/y1uKMy4A==
   /react/17.0.1:
     dependencies:
       loose-envify: 1.4.0
@@ -5265,6 +5454,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+  /ua-parser-js/0.7.23:
+    dev: false
+    resolution:
+      integrity: sha512-m4hvMLxgGHXG3O3fQVAyyAQpZzDOvwnhOTjYz5Xmr7r/+LpkNy3vJXdVRWgd1TkAb7NGROZuSy96CrlNVjA7KA==
   /union-value/1.0.1:
     dependencies:
       arr-union: 3.1.0
@@ -5482,6 +5675,10 @@ packages:
         optional: true
     resolution:
       integrity: sha512-4UOGAohv/VGUNQJstzEywwNxqX417FnjZgZJpJQegddzPmTvph37eBIRbRTfdySXzVtJXLJfbMN3mMYhM6GdmQ==
+  /whatwg-fetch/3.5.0:
+    dev: false
+    resolution:
+      integrity: sha512-jXkLtsR42xhXg7akoDKvKWE40eJeI+2KZqcp2h3NsOrRnDvtWX36KcKl30dy+hxECivdk2BVUHVNrPtoMBUx6A==
   /whatwg-url/7.1.0:
     dependencies:
       lodash.sortby: 4.7.0
@@ -5565,6 +5762,8 @@ specifiers:
   axios: ^0.21.1
   faunadb: ^4.0.0
   framer-motion: ^2.9.4
+  little-state-machine: ^4.0.0
+  little-state-machine-devtools: ^1.0.0
   next: latest
   react: ^17.0.1
   react-dom: ^17.0.1
