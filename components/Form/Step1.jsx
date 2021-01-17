@@ -8,7 +8,7 @@ import { useQueryClient, useMutation } from 'react-query'
 import { createRecipe, updateRecipe } from '@utils/api'
 import { schema } from '@lib/schema'
 
-const InformationForm = ({ recipe }) => {
+const Step1 = ({ recipe }) => {
   const router = useRouter()
   const queryCache = useQueryClient()
 
@@ -142,4 +142,4 @@ const InformationForm = ({ recipe }) => {
   )
 }
 
-export default InformationForm
+export default Step1

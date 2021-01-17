@@ -8,7 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { createRecipe, updateRecipe } from '@utils/api'
 import Link from 'next/link'
 
-const InstructionForm = ({ recipe }) => {
+const Step2 = ({ recipe }) => {
   const router = useRouter()
   const queryCache = useQueryClient()
   const { setFormValues, formData } = useFormData()
@@ -33,7 +33,7 @@ const InstructionForm = ({ recipe }) => {
 
   const back = data => {
     setFormValues(data)
-    router.push('/recipe/create/information')
+    router.push('/recipe/create/step1')
   }
 
   return (
@@ -47,7 +47,7 @@ const InstructionForm = ({ recipe }) => {
           error={errors.step1}
         />
         <Stack isInline pt={2} justify='space-between'>
-          <Link href='/recipe/create/information'>
+          <Link href='/recipe/create/step1'>
             <Button w='40%'>Back</Button>
           </Link>
           <Button w='40%' colorScheme='green' type='submit'>
@@ -59,4 +59,4 @@ const InstructionForm = ({ recipe }) => {
   )
 }
 
-export default InstructionForm
+export default Step2

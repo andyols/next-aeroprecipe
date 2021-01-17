@@ -22,7 +22,7 @@ const Header = props => {
       </Link>
       <Spacer />
       <Flex align='center'>
-        <Link href='/recipe/create/information'>
+        <Link href='/recipe/create/step1'>
           <Button
             colorScheme='teal'
             size='sm'
