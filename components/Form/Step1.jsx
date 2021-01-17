@@ -4,39 +4,35 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useQueryClient, useMutation } from 'react-query'
-import { createRecipe, updateRecipe } from '@utils/api'
 import { schema } from '@lib/schema'
+import { useStateMachine } from 'little-state-machine'
+import updateForm from '@utils/updateForm'
 
 const Step1 = ({ recipe }) => {
   const router = useRouter()
-  const queryCache = useQueryClient()
+  const {
+    state: { form },
+    actions,
+  } = useStateMachine({ updateForm })
 
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema),
     defaultValues: {
-      title: recipe ? recipe.title : '',
-      creator: recipe ? recipe.creator : '',
-      method: recipe ? recipe.method : 'Standard',
-      coffee: recipe ? recipe.coffee : 15,
-      grind: recipe ? recipe.grind : 'Medium',
-      water: recipe ? recipe.water : 200,
-      temperature: recipe ? recipe.temperature : 98,
-      time: recipe ? recipe.time : 120,
+      title: recipe ? recipe.title : form.title,
+      creator: recipe ? recipe.creator : form.creator,
+      method: recipe ? recipe.method : form.method,
+      coffee: recipe ? recipe.coffee : form.coffee,
+      grind: recipe ? recipe.grind : form.grind,
+      water: recipe ? recipe.water : form.water,
+      temperature: recipe ? recipe.temperature : form.temperature,
+      time: recipe ? recipe.time : form.time,
     },
   })
 
-  const create = useMutation(createRecipe)
-  const update = useMutation(updateRecipe)
-  const isLoading = create.isLoading || update.isLoading
-
   const submit = async data => {
-    recipe
-      ? await update.mutateAsync({ ...data, id: recipe.id })
-      : await create.mutateAsync(data)
-    queryCache.invalidateQueries('recipes')
-    router.push('/')
+    actions.updateForm(data)
+    router.push('/recipe/create/step2')
   }
 
   return (
@@ -127,13 +123,7 @@ const Step1 = ({ recipe }) => {
           <Link href='/'>
             <Button w='40%'>Back</Button>
           </Link>
-          <Button
-            w='40%'
-            colorScheme='green'
-            type='submit'
-            isLoading={isLoading}
-            loadingText='Submitting...'
-          >
+          <Button w='40%' colorScheme='green' type='submit'>
             Next
           </Button>
         </Stack>
