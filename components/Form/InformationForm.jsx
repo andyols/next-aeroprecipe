@@ -1,32 +1,29 @@
 import { Button, Stack, useBreakpointValue } from '@chakra-ui/react'
-import { FormInput, FormNumberInput, FormSelect, FormWrapper } from '..'
+import { FormInput, FormNumberInput, FormSelect, FormWrapper } from '.'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useMutation } from 'react-query'
-import { useQueryClient } from 'react-query'
-import { useFormData } from './FormContext'
+import { useQueryClient, useMutation } from 'react-query'
 import { createRecipe, updateRecipe } from '@utils/api'
 import { schema } from '@lib/schema'
 
-const Form = ({ recipe }) => {
+const InformationForm = ({ recipe }) => {
   const router = useRouter()
   const queryCache = useQueryClient()
-  const { setFormValues, formData } = useFormData()
 
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema),
     defaultValues: {
-      title: recipe ? recipe.title : formData.title,
-      creator: recipe ? recipe.creator : formData.creator,
-      method: recipe ? recipe.method : formData.method,
-      coffee: recipe ? recipe.coffee : formData.coffee,
-      grind: recipe ? recipe.grind : formData.grind,
-      water: recipe ? recipe.water : formData.water,
-      temperature: recipe ? recipe.temperature : formData.temperature,
-      time: recipe ? recipe.time : formData.time,
+      title: recipe ? recipe.title : '',
+      creator: recipe ? recipe.creator : '',
+      method: recipe ? recipe.method : 'Standard',
+      coffee: recipe ? recipe.coffee : 15,
+      grind: recipe ? recipe.grind : 'Medium',
+      water: recipe ? recipe.water : 200,
+      temperature: recipe ? recipe.temperature : 98,
+      time: recipe ? recipe.time : 120,
     },
   })
 
@@ -137,7 +134,7 @@ const Form = ({ recipe }) => {
             isLoading={isLoading}
             loadingText='Submitting...'
           >
-            {recipe ? 'Update!' : 'Create!'}
+            Next
           </Button>
         </Stack>
       </Stack>
@@ -145,4 +142,4 @@ const Form = ({ recipe }) => {
   )
 }
 
-export default Form
+export default InformationForm
