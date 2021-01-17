@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Button, IconButton, Stack } from '@chakra-ui/react'
 import { FormTextarea, FormWrapper } from '.'
 import { useRouter } from 'next/router'
@@ -18,11 +19,12 @@ const Step2 = ({ recipe }) => {
     state: { form },
     actions,
   } = useStateMachine({ updateForm })
+  const [count, setCount] = useState(form.steps.length)
 
   const { handleSubmit, register, errors, getValues } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema),
-    defaultValues: [...form.steps],
+    defaultValues: form.steps,
   })
 
   const create = useMutation(createRecipe)
@@ -30,6 +32,7 @@ const Step2 = ({ recipe }) => {
   const isLoading = create.isLoading || update.isLoading
 
   const add = () => {
+    setCount(count + 1)
     const payload = {
       ...form,
       steps: [...form.steps, ''],
@@ -38,6 +41,7 @@ const Step2 = ({ recipe }) => {
   }
 
   const remove = () => {
+    setCount(count - 1)
     const payload = {
       ...form,
       steps: [
@@ -48,16 +52,17 @@ const Step2 = ({ recipe }) => {
     actions.updateForm(payload)
   }
 
-  const back = () => {
-    // router.push('/recipe/create/step1')
-  }
-
   const save = () => {
     const payload = {
       ...form,
       steps: Object.values(getValues()),
     }
     actions.updateForm(payload)
+  }
+
+  const back = () => {
+    save()
+    router.push('/recipe/create/step1')
   }
 
   const submit = async data => {
@@ -68,6 +73,17 @@ const Step2 = ({ recipe }) => {
     router.push('/')
   }
 
+  const Steps = () =>
+    form.steps.map((_, i) => (
+      <FormTextarea
+        id={i}
+        key={i}
+        ref={register}
+        label={`Step ${i + 1}`}
+        placeholder='Enter instructions here'
+      />
+    ))
+
   return (
     <FormWrapper onSubmit={handleSubmit(submit)}>
       <Stack spacing={4}>
@@ -77,7 +93,7 @@ const Step2 = ({ recipe }) => {
             icon={<MinusIcon />}
             colorScheme='red'
             type='button'
-            disabled={form.steps.length <= 1}
+            disabled={count <= 1}
           />
           <Button rightIcon={<CheckIcon />} onClick={save}>
             Save
@@ -89,15 +105,9 @@ const Step2 = ({ recipe }) => {
             type='button'
           />
         </Stack>
-        {form.steps.map((_, i) => (
-          <FormTextarea
-            key={i}
-            ref={register}
-            id={i}
-            label={`Step ${i + 1}`}
-            placeholder='Enter instructions here'
-          />
-        ))}
+
+        {<Steps />}
+
         <Stack isInline pt={2} justify='space-between'>
           <Button w='40%' onClick={back} type='button'>
             Back
