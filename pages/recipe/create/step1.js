@@ -1,12 +1,12 @@
 import { Layout } from '@components/Layout'
-import { Form } from '@components/Recipe'
+import { Step1 } from '@components/Recipe'
 
-const Create = () => {
+const Form = () => {
   return (
     <Layout title='New Recipe' align='center'>
-      <Form />
+      <Step1 />
     </Layout>
   )
 }
 
-export default Create
+export default Form

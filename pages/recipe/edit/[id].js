@@ -1,11 +1,14 @@
 import { Layout } from '@components/Layout'
-import { Form } from '@components/Recipe'
+import { Step1 } from '@components/Recipe'
 import { q_findRecipe } from '@utils/queries'
+import { FormContextProvider } from '@components/Recipe/Form/FormContext'
 
 const Edit = ({ recipe }) => {
   return (
     <Layout title={`Edit - ${recipe.title}`} align='center'>
-      <Form recipe={recipe} />
+      <FormContextProvider>
+        <Step1 recipe={recipe} />
+      </FormContextProvider>
     </Layout>
   )
 }
