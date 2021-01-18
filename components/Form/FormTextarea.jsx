@@ -1,11 +1,8 @@
-import { CloseIcon } from '@chakra-ui/icons'
 import {
   FormControl,
   FormErrorMessage,
   FormHelperText,
   FormLabel,
-  IconButton,
-  Stack,
   Textarea,
 } from '@chakra-ui/react'
 import { forwardRef } from 'react'
