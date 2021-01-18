@@ -1,22 +1,28 @@
-import { Button, Stack, useBreakpointValue } from '@chakra-ui/react'
-import { FormInput, FormNumberInput, FormSelect, FormWrapper } from '.'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Button, Stack, useBreakpointValue } from '@chakra-ui/react'
+import { FormInput, FormNumberInput, FormSelect, FormWrapper } from '.'
+import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { schema } from '@lib/schema'
-import { useDispatch, useSelector } from 'react-redux'
-import { setInformation } from '@lib/rootSlice'
+import {
+  validateStep1,
+  COFFEE_MAX,
+  WATER_MAX,
+  TIME_MAX,
+  TEMPERATURE_MAX,
+} from './validation'
+import { saveInformation } from './reduxSlice'
 
 const Step1 = ({ recipe }) => {
   const router = useRouter()
 
   const dispatch = useDispatch()
-  const information = useSelector(({ information }) => information)
+  const information = useSelector(state => state.recipe.information)
 
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
-    resolver: yupResolver(schema),
+    resolver: yupResolver(validateStep1),
     defaultValues: {
       title: recipe ? recipe.title : information.title,
       creator: recipe ? recipe.creator : information.creator,
@@ -30,7 +36,7 @@ const Step1 = ({ recipe }) => {
   })
 
   const submit = async data => {
-    dispatch(setInformation(data))
+    dispatch(saveInformation(data))
     router.push('/recipe/create/step2')
   }
 
@@ -68,8 +74,7 @@ const Step1 = ({ recipe }) => {
             id='coffee'
             label='How much coffee?'
             addon='g'
-            min={5}
-            max={50}
+            max={COFFEE_MAX}
             error={errors.coffee}
           />
           <FormSelect
@@ -91,9 +96,8 @@ const Step1 = ({ recipe }) => {
             id='water'
             label='How much water?'
             addon='mL'
-            min={10}
-            max={300}
             step={5}
+            max={WATER_MAX}
             error={errors.water}
           />
           <FormNumberInput
@@ -101,9 +105,8 @@ const Step1 = ({ recipe }) => {
             id='temperature'
             label='How hot?'
             addon='°C'
-            min={0}
-            max={100}
             help='Or cold, depends on your perspective'
+            max={TEMPERATURE_MAX}
             error={errors.temperature}
           />
         </Stack>
@@ -112,10 +115,9 @@ const Step1 = ({ recipe }) => {
           id='time'
           label='About how long will the brew take?'
           addon='seconds'
-          min={10}
-          max={3600}
           step={10}
           help='A rough estimate here will be fine :)'
+          max={TIME_MAX}
           error={errors.time}
         />
         <Stack isInline pt={2} justify='space-between'>
