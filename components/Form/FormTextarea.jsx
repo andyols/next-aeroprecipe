@@ -11,18 +11,10 @@ import {
 import { forwardRef } from 'react'
 
 const FormTextarea = forwardRef((props, ref) => {
-  const { id, label, error, placeholder, help, defaultValue, remove } = props
+  const { id, label, error, placeholder, help, defaultValue } = props
   return (
     <FormControl id={id} isInvalid={!!error}>
-      <Stack isInline align='flex-end' justify='space-between'>
-        <FormLabel>{label}</FormLabel>
-        <IconButton
-          variant='ghost'
-          icon={<CloseIcon />}
-          colorScheme='red'
-          onClick={() => remove(id)}
-        />
-      </Stack>
+      <FormLabel>{label}</FormLabel>
       <Textarea
         ref={ref}
         name={id}
