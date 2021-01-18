@@ -5,33 +5,32 @@ import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from '@lib/schema'
-import { useStateMachine } from 'little-state-machine'
-import updateForm from '@utils/updateForm'
+import { useDispatch, useSelector } from 'react-redux'
+import { setInformation } from '@lib/rootSlice'
 
 const Step1 = ({ recipe }) => {
   const router = useRouter()
-  const {
-    state: { form },
-    actions,
-  } = useStateMachine({ updateForm })
+
+  const dispatch = useDispatch()
+  const information = useSelector(({ information }) => information)
 
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema),
     defaultValues: {
-      title: recipe ? recipe.title : form.title,
-      creator: recipe ? recipe.creator : form.creator,
-      method: recipe ? recipe.method : form.method,
-      coffee: recipe ? recipe.coffee : form.coffee,
-      grind: recipe ? recipe.grind : form.grind,
-      water: recipe ? recipe.water : form.water,
-      temperature: recipe ? recipe.temperature : form.temperature,
-      time: recipe ? recipe.time : form.time,
+      title: recipe ? recipe.title : information.title,
+      creator: recipe ? recipe.creator : information.creator,
+      method: recipe ? recipe.method : information.method,
+      coffee: recipe ? recipe.coffee : information.coffee,
+      grind: recipe ? recipe.grind : information.grind,
+      water: recipe ? recipe.water : information.water,
+      temperature: recipe ? recipe.temperature : information.temperature,
+      time: recipe ? recipe.time : information.time,
     },
   })
 
   const submit = async data => {
-    actions.updateForm(data)
+    dispatch(setInformation(data))
     router.push('/recipe/create/step2')
   }
 

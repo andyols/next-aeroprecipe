@@ -1,20 +1,19 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import { StateMachineProvider, createStore } from 'little-state-machine'
 import theme from '@lib/theme'
-import formDefault from '@lib/formDefault'
+import { Provider } from 'react-redux'
+import { store } from '@lib/store'
 
 const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }) {
-  createStore(formDefault)
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider resetCSS theme={theme}>
-        <StateMachineProvider>
+        <Provider store={store}>
           <Component {...pageProps} />
-        </StateMachineProvider>
+        </Provider>
       </ChakraProvider>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>

@@ -4,16 +4,16 @@ dependencies:
   '@emotion/react': 11.1.4_react@17.0.1
   '@emotion/styled': 11.0.0_69dd99bc46b1e036f631d5b040f38d6a
   '@hookform/resolvers': 1.3.0_react-hook-form@6.14.1
+  '@reduxjs/toolkit': 1.5.0
   axios: 0.21.1
   faunadb: 4.0.0
   framer-motion: 2.9.5_react-dom@17.0.1+react@17.0.1
-  little-state-machine: 4.0.0_react@17.0.1
-  little-state-machine-devtools: 1.0.0_a447e1cd9a90f3d35cbfe6905d2796c1
   next: 10.0.5_react-dom@17.0.1+react@17.0.1
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
   react-hook-form: 6.14.1_react@17.0.1
   react-query: 3.5.12_react-dom@17.0.1+react@17.0.1
+  react-redux: 7.2.2_react-dom@17.0.1+react@17.0.1
   swr: 0.4.0_react@17.0.1
   yup: 0.32.8
 lockfileVersion: 5.2
@@ -1109,6 +1109,15 @@ packages:
       react-dom: ^16.8.0
     resolution:
       integrity: sha512-O67fK7jz01TYu/V57RiDsxKY29ReHdQkpq+OV0ijmXsv7g5r3Nys51Ry+IqPrJst4Ve5xxFbiJsTt/bGwxorrQ==
+  /@reduxjs/toolkit/1.5.0:
+    dependencies:
+      immer: 8.0.0
+      redux: 4.0.5
+      redux-thunk: 2.3.0
+      reselect: 4.0.0
+    dev: false
+    resolution:
+      integrity: sha512-E/FUraRx+8guw9Hlg/Ja8jI/hwCrmIKed8Annt9YsZw3BQp+F24t5I5b2OWR6pkEHY4hn1BgP08FrTZFRKsdaQ==
   /@types/json-schema/7.0.6:
     dev: false
     resolution:
@@ -1445,10 +1454,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
-  /asap/2.0.6:
-    dev: false
-    resolution:
-      integrity: sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
   /asn1.js/5.4.1:
     dependencies:
       bn.js: 4.11.9
@@ -1538,10 +1543,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-5T6P4xPgpp0YDFvSWwEZ4NoE3aM4QBQXDzmVbraCkFj8zHM+mba8SyqB5DbZWyR7mYHo6Y7BdQo3MoA4m0TeQg==
-  /base16/1.0.0:
-    dev: false
-    resolution:
-      integrity: sha1-4pf2DX7BAUp6lxo568ipjAtoHnA=
   /base64-js/1.5.1:
     dev: false
     resolution:
@@ -2019,11 +2020,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw==
-  /core-js/1.2.7:
-    deprecated: core-js@<3 is no longer maintained and not recommended for usage due to the number of issues. Please, upgrade your dependencies to the actual version of core-js@3.
-    dev: false
-    resolution:
-      integrity: sha1-ZSKUwUZR2yj6k70tX/KYOk8IxjY=
   /core-util-is/1.0.2:
     dev: false
     resolution:
@@ -2380,12 +2376,6 @@ packages:
       node: '>= 4'
     resolution:
       integrity: sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==
-  /encoding/0.1.13:
-    dependencies:
-      iconv-lite: 0.6.2
-    dev: false
-    resolution:
-      integrity: sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==
   /end-of-stream/1.4.4:
     dependencies:
       once: 1.4.0
@@ -2601,24 +2591,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-tXiGthGdbInZ6hzdmGFxnxqsQe2mKq+pnOc+zHZYXtD8TDgKWpK0F9M0tmRpD0uoQUrBHzXU7hxE24pJJxPdbQ==
-  /fbemitter/2.1.1:
-    dependencies:
-      fbjs: 0.8.17
-    dev: false
-    resolution:
-      integrity: sha1-Uj4U/a9SSIBbsC9i78M75wP1GGU=
-  /fbjs/0.8.17:
-    dependencies:
-      core-js: 1.2.7
-      isomorphic-fetch: 2.2.1
-      loose-envify: 1.4.0
-      object-assign: 4.1.1
-      promise: 7.3.1
-      setimmediate: 1.0.5
-      ua-parser-js: 0.7.23
-    dev: false
-    resolution:
-      integrity: sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
   /figgy-pudding/3.5.2:
     dev: false
     resolution:
@@ -2695,16 +2667,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-3Z4XhFZ3992uIq0XOqb9AreonueSYphE6oYbpt5+3u06JWklbsPkNv3ZKkP9Bz/r+1MWCaMoSQ28P85+1Yc77w==
-  /flux/3.1.3_react@17.0.1:
-    dependencies:
-      fbemitter: 2.1.1
-      fbjs: 0.8.17
-      react: 17.0.1
-    dev: false
-    peerDependencies:
-      react: ^15.0.2 || ^16.0.0-beta || ^16.0.0
-    resolution:
-      integrity: sha1-0jvtUVp5oi2TOrU6tK2hnQWy8Io=
   /fn-annotate/1.2.0:
     dev: false
     engines:
@@ -3024,14 +2986,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
-  /iconv-lite/0.6.2:
-    dependencies:
-      safer-buffer: 2.1.2
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha512-2y91h5OpQlolefMPmUlivelittSWy0rP+oYVpn6A7GwVHNE8AWzoYOBNmlwks3LobaJxgHCYZAnyNo2GgpNRNQ==
   /icss-utils/4.1.1:
     dependencies:
       postcss: 7.0.32
@@ -3048,6 +3002,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-xg7taebY/bazEEofy8ocGS3FtQE=
+  /immer/8.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-jm87NNBAIG4fHwouilCHIecFXp5rMGkiFrAuhVO685UnMAlOneEAnOyzPt8OnP47TC11q/E7vpzZe0WvwepFTg==
   /import-fresh/3.3.0:
     dependencies:
       parent-module: 1.0.1
@@ -3257,12 +3215,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==
-  /is-stream/1.1.0:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha1-EtSj3U5o4Lec6428hBc66A2RykQ=
   /is-windows/1.0.2:
     dev: false
     engines:
@@ -3293,13 +3245,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
-  /isomorphic-fetch/2.2.1:
-    dependencies:
-      node-fetch: 1.7.3
-      whatwg-fetch: 3.5.0
-    dev: false
-    resolution:
-      integrity: sha1-YRrhrPFPXoH3KVB0coGf6XM1WKk=
   /jest-worker/24.9.0:
     dependencies:
       merge-stream: 2.0.0
@@ -3386,33 +3331,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
-  /little-state-machine-devtools/1.0.0_a447e1cd9a90f3d35cbfe6905d2796c1:
-    dependencies:
-      little-state-machine: 4.0.0_react@17.0.1
-      lodash.clonedeep: 4.5.0
-      lodash.isempty: 4.4.0
-      lodash.isequal: 4.5.0
-      lodash.isobject: 3.0.2
-      lodash.transform: 4.6.0
-      react: 17.0.1
-      react-dom: 17.0.1_react@17.0.1
-      react-json-view: 1.20.0_react-dom@17.0.1+react@17.0.1
-      react-simple-animate: 3.3.11_react-dom@17.0.1+react@17.0.1
-    dev: false
-    peerDependencies:
-      little-state-machine: ^3.0.0
-      react: ^16.8.0
-      react-dom: ^16.8.0
-    resolution:
-      integrity: sha512-qIZfEuvlbXkV4sw1BD88axcxQT6Ulx/Wc5q6moU3D66EC1Dv+RTucsy6uf+vIEaTrWQD6+CCENMaxcDolOzaWA==
-  /little-state-machine/4.0.0_react@17.0.1:
-    dependencies:
-      react: 17.0.1
-    dev: false
-    peerDependencies:
-      react: ^16.8.0 || ^17
-    resolution:
-      integrity: sha512-IsG03r81UpHzU/bFZu+F/KX2WTIpvKGyMxo1QBSym0wEsphp3JKJrMqxvIRvwPyscCxzt0nP40VROSby9VQf0w==
   /loader-runner/2.4.0:
     dev: false
     engines:
@@ -3460,30 +3378,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-JD1COMZsq8maT6mnuz1UMV0jvYD0E0aUsSOdrr1/nAG3dhqQXwRRgeW0cSqH1U43INKcqxaiVIQNOUDld7gRDA==
-  /lodash.clonedeep/4.5.0:
-    dev: false
-    resolution:
-      integrity: sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
-  /lodash.curry/4.1.1:
-    dev: false
-    resolution:
-      integrity: sha1-JI42By7ekGUB11lmIAqG2riyMXA=
-  /lodash.flow/3.5.0:
-    dev: false
-    resolution:
-      integrity: sha1-h79AKSuM+D5OjOGjrkIJ4gBxZ1o=
-  /lodash.isempty/4.4.0:
-    dev: false
-    resolution:
-      integrity: sha1-b4bL7di+TsmHvpqvM8loTbGzHn4=
-  /lodash.isequal/4.5.0:
-    dev: false
-    resolution:
-      integrity: sha1-QVxEePK8wwEgwizhDtMib30+GOA=
-  /lodash.isobject/3.0.2:
-    dev: false
-    resolution:
-      integrity: sha1-PI+41bW/S/kK4G4U8qUwpO2TXh0=
   /lodash.mergewith/4.6.2:
     dev: false
     resolution:
@@ -3492,10 +3386,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
-  /lodash.transform/4.6.0:
-    dev: false
-    resolution:
-      integrity: sha1-EjBkIvYzJK7YSD0/ODMrX2cFR6A=
   /lodash/4.17.20:
     dev: false
     resolution:
@@ -3840,13 +3730,6 @@ packages:
     optional: true
     resolution:
       integrity: sha512-flmrDNB06LIl5lywUz7YlNGZH/5p0M7W28k8hzd9Lshtdh1wshD2Y+U4h9LD6KObOy1f+fEVdgprPrEymjM5uw==
-  /node-fetch/1.7.3:
-    dependencies:
-      encoding: 0.1.13
-      is-stream: 1.1.0
-    dev: false
-    resolution:
-      integrity: sha512-NhZ4CsKx7cYm2vSrBAr2PvFOe6sWDf0UYLRqA6svUYg7+/TSfVAu49jYC4BvQ4Sms9SZgdqGBgroqfDhJdTyKQ==
   /node-fetch/2.6.1:
     dev: false
     engines:
@@ -4296,12 +4179,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-mEcocL8igTL8vdhoEputEsPAKeM=
-  /promise/7.3.1:
-    dependencies:
-      asap: 2.0.6
-    dev: false
-    resolution:
-      integrity: sha512-nolQXZ/4L+bP/UGlkfaIujX9BKxGwmQ9OT4mOt5yvy8iK1h3wqTEJCijzGANTCCl9nWjY41juyAn2K3Q1hLLTg==
   /prop-types/15.7.2:
     dependencies:
       loose-envify: 1.4.0
@@ -4365,10 +4242,6 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
-  /pure-color/1.3.0:
-    dev: false
-    resolution:
-      integrity: sha1-H+Bk+wrIUfDeYTIKi/eWg2Qi8z4=
   /querystring-es3/0.2.1:
     dev: false
     engines:
@@ -4420,15 +4293,6 @@ packages:
     optional: true
     resolution:
       integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==
-  /react-base16-styling/0.6.0:
-    dependencies:
-      base16: 1.0.0
-      lodash.curry: 4.1.1
-      lodash.flow: 3.5.0
-      pure-color: 1.3.0
-    dev: false
-    resolution:
-      integrity: sha1-7yFW1mz0E5aVyKFniGy2nqZgeSw=
   /react-clientside-effect/1.2.3_react@17.0.1:
     dependencies:
       '@babel/runtime': 7.12.5
@@ -4479,25 +4343,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-  /react-json-view/1.20.0_react-dom@17.0.1+react@17.0.1:
-    dependencies:
-      flux: 3.1.3_react@17.0.1
-      react: 17.0.1
-      react-base16-styling: 0.6.0
-      react-dom: 17.0.1_react@17.0.1
-      react-lifecycles-compat: 3.0.4
-      react-textarea-autosize: 6.1.0_react@17.0.1
-    dev: false
-    peerDependencies:
-      node: ^10.23.0
-      react: ^17.0.0 || ^16.3.0 || ^15.5.4
-      react-dom: ^17.0.0 || ^16.3.0 || ^15.5.4
-    resolution:
-      integrity: sha512-H5S+sZMZ57bUY+ub9OZ+yrJ0fsyRblIPKn0LCdaBIB67FvxGZ9W0I1lJgBEUDmH094qpqxAIl6pLn6J58ZMkdA==
-  /react-lifecycles-compat/3.0.4:
-    dev: false
-    resolution:
-      integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
   /react-query/3.5.12_react-dom@17.0.1+react@17.0.1:
     dependencies:
       '@babel/runtime': 7.12.5
@@ -4516,6 +4361,28 @@ packages:
         optional: true
     resolution:
       integrity: sha512-e7cqRHoEiA8iew9oyC8rrPnGsn/+vCFt2+2TKErWHptY+3lTqhYaETqh621LQcSYX3EhA8iU1sUCijRDQf929g==
+  /react-redux/7.2.2_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      '@babel/runtime': 7.12.5
+      hoist-non-react-statics: 3.3.2
+      loose-envify: 1.4.0
+      prop-types: 15.7.2
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+      react-is: 16.13.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.3 || ^17
+      react-dom: '*'
+      react-native: '*'
+      redux: ^2.0.0 || ^3.0.0 || ^4.0.0-0
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    resolution:
+      integrity: sha512-8+CQ1EvIVFkYL/vu6Olo7JFLWop1qRUeb46sGtIMDCSpgwPQq8fPLpirIB0iTqFe9XYEFPHssdX8/UwN6pAkEA==
   /react-refresh/0.8.3:
     dev: false
     engines:
@@ -4557,16 +4424,6 @@ packages:
         optional: true
     resolution:
       integrity: sha512-BZIO3GaEs0Or1OhA5C//n1ibUP1HdjJmqUVUsOCMxwoIpaCocbB9TFKwHOkBa/nyYy3slirqXeiPYGwdSDiseA==
-  /react-simple-animate/3.3.11_react-dom@17.0.1+react@17.0.1:
-    dependencies:
-      react: 17.0.1
-      react-dom: 17.0.1_react@17.0.1
-    dev: false
-    peerDependencies:
-      react: ^16.8.0
-      react-dom: ^16.8.0
-    resolution:
-      integrity: sha512-kt2SKJ4Gw3klTmRbik/9R741fPiVRVlxkXvV0c3uu8NqOtdc5ITis62WcdiKH6U5QhCjXNfLW9lrbQ4cAYujyA==
   /react-style-singleton/2.1.1_react@17.0.1:
     dependencies:
       get-nonce: 1.0.1
@@ -4584,15 +4441,6 @@ packages:
         optional: true
     resolution:
       integrity: sha512-jNRp07Jza6CBqdRKNgGhT3u9umWvils1xsuMOjZlghBDH2MU0PL2WZor4PGYjXpnRCa9DQSlHMs/xnABWOwYbA==
-  /react-textarea-autosize/6.1.0_react@17.0.1:
-    dependencies:
-      prop-types: 15.7.2
-      react: 17.0.1
-    dev: false
-    peerDependencies:
-      react: '>=0.14.0 <17.0.0'
-    resolution:
-      integrity: sha512-F6bI1dgib6fSvG8so1HuArPUv+iVEfPliuLWusLF+gAKz0FbB4jLrWUrTAeq1afnPT2c9toEZYUdz/y1uKMy4A==
   /react/17.0.1:
     dependencies:
       loose-envify: 1.4.0
@@ -4643,6 +4491,17 @@ packages:
       node: '>=8.10.0'
     resolution:
       integrity: sha512-cMhu7c/8rdhkHXWsY+osBhfSy0JikwpHK/5+imo+LpeasTF8ouErHrlYkwT0++njiyuDvc7OFY5T3ukvZ8qmFQ==
+  /redux-thunk/2.3.0:
+    dev: false
+    resolution:
+      integrity: sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw==
+  /redux/4.0.5:
+    dependencies:
+      loose-envify: 1.4.0
+      symbol-observable: 1.2.0
+    dev: false
+    resolution:
+      integrity: sha512-VSz1uMAH24DM6MF72vcojpYPtrTUu3ByVWfPL1nPfVRb5mZVTve5GnNCUV53QM/BZ66xfWrm0CTWoM+Xlz8V1w==
   /regenerator-runtime/0.13.7:
     dev: false
     resolution:
@@ -4685,6 +4544,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+  /reselect/4.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-qUgANli03jjAyGlnbYVAV5vvnOmJnODyABz51RdBN7M4WaVu8mecZWgyQNkG8Yqe3KRGRt0l4K4B3XVEULC4CA==
   /resolve-from/4.0.0:
     dev: false
     engines:
@@ -5243,6 +5106,12 @@ packages:
       react: ^16.11.0 || ^17.0.0
     resolution:
       integrity: sha512-70qd1FHYHwIdYXW0jTpm5ktitzvPBCtyKz8ZzynWlY/rMqe4drYPgcl/H9Ipuh+Xv6ZW5viNx13ro8EKIWZcoQ==
+  /symbol-observable/1.2.0:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
   /tapable/1.1.3:
     dev: false
     engines:
@@ -5454,10 +5323,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-  /ua-parser-js/0.7.23:
-    dev: false
-    resolution:
-      integrity: sha512-m4hvMLxgGHXG3O3fQVAyyAQpZzDOvwnhOTjYz5Xmr7r/+LpkNy3vJXdVRWgd1TkAb7NGROZuSy96CrlNVjA7KA==
   /union-value/1.0.1:
     dependencies:
       arr-union: 3.1.0
@@ -5675,10 +5540,6 @@ packages:
         optional: true
     resolution:
       integrity: sha512-4UOGAohv/VGUNQJstzEywwNxqX417FnjZgZJpJQegddzPmTvph37eBIRbRTfdySXzVtJXLJfbMN3mMYhM6GdmQ==
-  /whatwg-fetch/3.5.0:
-    dev: false
-    resolution:
-      integrity: sha512-jXkLtsR42xhXg7akoDKvKWE40eJeI+2KZqcp2h3NsOrRnDvtWX36KcKl30dy+hxECivdk2BVUHVNrPtoMBUx6A==
   /whatwg-url/7.1.0:
     dependencies:
       lodash.sortby: 4.7.0
@@ -5759,15 +5620,15 @@ specifiers:
   '@emotion/react': ^11.0.0
   '@emotion/styled': ^11.0.0
   '@hookform/resolvers': 1.3.0
+  '@reduxjs/toolkit': ^1.5.0
   axios: ^0.21.1
   faunadb: ^4.0.0
   framer-motion: ^2.9.4
-  little-state-machine: ^4.0.0
-  little-state-machine-devtools: ^1.0.0
   next: latest
   react: ^17.0.1
   react-dom: ^17.0.1
   react-hook-form: ^6.14.1
   react-query: ^3.5.12
+  react-redux: ^7.2.2
   swr: ^0.4.0
   yup: ^0.32.8

@@ -8,16 +8,17 @@ import {
 import { forwardRef } from 'react'
 
 const FormTextarea = forwardRef((props, ref) => {
-  const { id, label, error, placeholder, help } = props
+  const { id, label, error, placeholder, help, defautValue } = props
   return (
     <FormControl id={id} isInvalid={!!error}>
       <FormLabel>{label}</FormLabel>
       <Textarea
         ref={ref}
         name={id}
-        placeholder={placeholder}
         label={id}
         resize='none'
+        defaultValue={defautValue}
+        placeholder={placeholder}
       />
       {help && <FormHelperText>{help}</FormHelperText>}
       {error && <FormErrorMessage>{error.message}</FormErrorMessage>}
