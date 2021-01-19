@@ -13,6 +13,7 @@ import {
   TEMPERATURE_MAX,
 } from './validation'
 import { saveInformation } from './reduxSlice'
+import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 
 const Step1 = ({ recipe }) => {
   const router = useRouter()
@@ -37,7 +38,7 @@ const Step1 = ({ recipe }) => {
 
   const submit = async data => {
     dispatch(saveInformation(data))
-    router.push('/recipe/create/step2')
+    router.push('step2')
   }
 
   return (
@@ -122,9 +123,16 @@ const Step1 = ({ recipe }) => {
         />
         <Stack isInline pt={2} justify='space-between'>
           <Link href='/'>
-            <Button w='40%'>Back</Button>
+            <Button w='40%' leftIcon={<ArrowBackIcon />}>
+              Back
+            </Button>
           </Link>
-          <Button w='40%' colorScheme='green' type='submit'>
+          <Button
+            w='40%'
+            colorScheme='green'
+            type='submit'
+            rightIcon={<ArrowForwardIcon />}
+          >
             Next
           </Button>
         </Stack>
