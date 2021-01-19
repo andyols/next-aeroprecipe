@@ -1,8 +1,8 @@
 import { Divider, Heading, Spinner, Stack, Text } from '@chakra-ui/react'
 import { Layout } from '@components/Layout'
 import { Recipes } from '@components/Recipe'
-import { useQuery } from 'react-query'
 import { getAllRecipes } from '@utils/api'
+import { useQuery } from 'react-query'
 
 export default function Homepage() {
   const { data: recipes, error, isLoading, isError } = useQuery(

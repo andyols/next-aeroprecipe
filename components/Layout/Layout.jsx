@@ -1,6 +1,6 @@
-import Head from 'next/head'
 import { Flex, useColorModeValue } from '@chakra-ui/react'
-import { Header, Container, Footer } from '.'
+import Head from 'next/head'
+import { Container, Footer, Header } from '.'
 
 const Layout = ({ title, children, ...rest }) => {
   const bg = useColorModeValue('gray.100', 'gray.800')

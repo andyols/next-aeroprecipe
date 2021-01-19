@@ -1,3 +1,4 @@
+import { ArrowBackIcon } from '@chakra-ui/icons'
 import {
   Box,
   Button,
@@ -13,24 +14,22 @@ import {
   Tbody,
   Td,
   Tr,
-  useColorModeValue,
+  useColorModeValue
 } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
+import { FaThermometerThreeQuarters } from 'react-icons/fa'
+import { GiCoffeeBeans } from 'react-icons/gi'
+import { HiClock, HiCog } from 'react-icons/hi'
+import { IoWaterOutline } from 'react-icons/io5'
 import {
   MdCheckCircle,
   MdEdit,
   MdInfo,
   MdPerson,
-  MdRefresh,
+  MdRefresh
 } from 'react-icons/md'
-import { GiCoffeeBeans } from 'react-icons/gi'
-import { HiCog, HiClock } from 'react-icons/hi'
-import { IoWaterOutline } from 'react-icons/io5'
-import { FaThermometerThreeQuarters } from 'react-icons/fa'
+import { useQueryClient } from 'react-query'
 import { useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
-import { ArrowBackIcon } from '@chakra-ui/icons'
-import { createRecipe, updateRecipe } from '@utils/api'
-import { useMutation, useQueryClient } from 'react-query'
 
 const Summary = () => {
   const router = useRouter()

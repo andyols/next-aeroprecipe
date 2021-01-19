@@ -3,7 +3,7 @@ import {
   FormErrorMessage,
   FormHelperText,
   FormLabel,
-  Textarea,
+  Textarea
 } from '@chakra-ui/react'
 import { forwardRef } from 'react'
 

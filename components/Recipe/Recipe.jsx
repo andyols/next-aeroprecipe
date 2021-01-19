@@ -1,27 +1,25 @@
 import {
+  ArrowForwardIcon,
+  DeleteIcon,
+  EditIcon,
+  HamburgerIcon
+} from '@chakra-ui/icons'
+import {
   Box,
   Button,
   Flex,
   IconButton,
-  Tag,
-  Text,
-  Stack,
-  useColorModeValue,
   Menu,
   MenuButton,
-  MenuList,
   MenuItem,
+  MenuList,
+  Tag,
+  Text,
+  useColorModeValue
 } from '@chakra-ui/react'
-import {
-  ArrowForwardIcon,
-  DeleteIcon,
-  EditIcon,
-  HamburgerIcon,
-} from '@chakra-ui/icons'
-import { useMutation } from 'react-query'
-import { useQueryClient } from 'react-query'
 import { deleteRecipe } from '@utils/api'
 import Link from 'next/link'
+import { useMutation, useQueryClient } from 'react-query'
 
 const Recipe = ({ recipe }) => {
   const queryCache = useQueryClient()
@@ -38,7 +36,7 @@ const Recipe = ({ recipe }) => {
     grind,
     water,
     temperature,
-    time,
+    time
   } = recipe
 
   const handleDelete = async () => {

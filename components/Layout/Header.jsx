@@ -1,11 +1,11 @@
 import { AddIcon } from '@chakra-ui/icons'
 import {
   Button,
-  Link as ChakraLink,
   Flex,
+  Link as ChakraLink,
   Spacer,
   Switch,
-  useColorMode,
+  useColorMode
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'

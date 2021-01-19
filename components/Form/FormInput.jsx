@@ -5,7 +5,7 @@ import {
   FormLabel,
   Input,
   InputGroup,
-  InputRightAddon,
+  InputRightAddon
 } from '@chakra-ui/react'
 import { forwardRef } from 'react'
 

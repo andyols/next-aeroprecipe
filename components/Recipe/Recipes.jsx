@@ -1,6 +1,6 @@
-import { Box, Stack, useColorModeValue, Text, Link } from '@chakra-ui/react'
-import { Recipe } from '.'
+import { Box, Link, Stack, Text, useColorModeValue } from '@chakra-ui/react'
 import { Link as NextLink } from 'next/link'
+import { Recipe } from '.'
 
 const Recipes = ({ recipes }) => {
   const bg = useColorModeValue('gray.50', 'gray.700')
@@ -16,8 +16,8 @@ const Recipes = ({ recipes }) => {
   ) : (
     <Box bg={bg} px={3} py={1} boxShadow='base' borderRadius='md'>
       <Text color={subtleText}>
-        Well, this is awkward... thered are no recipes the moment. Maybe you
-        could fix that by clicking{' '}
+        Well, this is awkward... thered are no recipes the moment. Maybe you could
+        fix that by clicking{' '}
         <Link
           as={NextLink}
           color='teal.300'

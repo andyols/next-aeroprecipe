@@ -2,7 +2,7 @@ import { Layout } from '@components/Layout'
 import dynamic from 'next/dynamic'
 
 const DynamicForm = dynamic(() => import('@components/Form/Step2'), {
-  ssr: false,
+  ssr: false
 })
 
 export default function Page() {

@@ -1,15 +1,15 @@
-import { Button, IconButton, Stack, Heading, Divider } from '@chakra-ui/react'
-import { FormTextarea, FormWrapper } from '.'
-import { useRouter } from 'next/router'
-import { useForm } from 'react-hook-form'
 import {
   AddIcon,
   ArrowBackIcon,
   ArrowForwardIcon,
-  MinusIcon,
+  MinusIcon
 } from '@chakra-ui/icons'
+import { Button, Divider, Heading, IconButton, Stack } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
+import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
-import { saveInstructions, addInstruction, removeInstruction } from './reduxSlice'
+import { FormTextarea, FormWrapper } from '.'
+import { addInstruction, removeInstruction, saveInstructions } from './reduxSlice'
 
 const Step2 = props => {
   const recipe = useSelector(state => state.recipe)
@@ -17,7 +17,7 @@ const Step2 = props => {
   const dispatch = useDispatch()
 
   const { handleSubmit, register, errors, getValues } = useForm({
-    mode: 'all',
+    mode: 'all'
   })
 
   const add = () => dispatch(addInstruction())
@@ -65,8 +65,8 @@ const Step2 = props => {
                 required: "Can't have an empty step!",
                 pattern: {
                   value: /^[a-zA-Z0-9 -.,:?!"';/$@~=_]*$/,
-                  message: 'Numbers, letters and common punctation only please',
-                },
+                  message: 'Numbers, letters and common punctation only please'
+                }
               })}
               label={`Step ${i + 1}`}
               defaultValue={recipe.instructions[i]}

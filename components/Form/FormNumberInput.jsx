@@ -3,13 +3,13 @@ import {
   FormErrorMessage,
   FormHelperText,
   FormLabel,
-  NumberInput,
   InputGroup,
   InputRightAddon,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
   NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper
 } from '@chakra-ui/react'
 import { forwardRef } from 'react'
 

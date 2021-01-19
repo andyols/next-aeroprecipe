@@ -1,5 +1,5 @@
-import { Layout } from '@components/Layout'
 import { Step1 } from '@components/Form'
+import { Layout } from '@components/Layout'
 import { q_findRecipe } from '@utils/queries'
 
 export default function Page({ recipe }) {
@@ -14,7 +14,7 @@ export async function getServerSideProps({ params: { id } }) {
   try {
     const { data: recipe } = await q_findRecipe(id)
     return {
-      props: { recipe },
+      props: { recipe }
     }
   } catch (err) {
     return { notFound: true }

@@ -1,5 +1,5 @@
+import { Heading, Stack, Text } from '@chakra-ui/react'
 import { Layout } from '@components/Layout'
-import { Stack, Heading, Text } from '@chakra-ui/react'
 import { q_findRecipe } from '@utils/queries'
 
 export default function Page({ recipe }) {
@@ -17,7 +17,7 @@ export async function getServerSideProps({ params: { id } }) {
   try {
     const { data: recipe } = await q_findRecipe(id)
     return {
-      props: { recipe },
+      props: { recipe }
     }
   } catch (err) {
     return { notFound: true }

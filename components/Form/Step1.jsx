@@ -1,19 +1,19 @@
+import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
+import { Button, Stack, useBreakpointValue } from '@chakra-ui/react'
+import { yupResolver } from '@hookform/resolvers/yup'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Button, Stack, useBreakpointValue } from '@chakra-ui/react'
-import { FormInput, FormNumberInput, FormSelect, FormWrapper } from '.'
-import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import {
-  validateStep1,
-  COFFEE_MAX,
-  WATER_MAX,
-  TIME_MAX,
-  TEMPERATURE_MAX,
-} from './validation'
+import { useDispatch, useSelector } from 'react-redux'
+import { FormInput, FormNumberInput, FormSelect, FormWrapper } from '.'
 import { saveInformation } from './reduxSlice'
-import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
+import {
+  COFFEE_MAX,
+  TEMPERATURE_MAX,
+  TIME_MAX,
+  validateStep1,
+  WATER_MAX
+} from './validation'
 
 const Step1 = ({ recipe }) => {
   const router = useRouter()
@@ -32,8 +32,8 @@ const Step1 = ({ recipe }) => {
       grind: recipe ? recipe.grind : information.grind,
       water: recipe ? recipe.water : information.water,
       temperature: recipe ? recipe.temperature : information.temperature,
-      time: recipe ? recipe.time : information.time,
-    },
+      time: recipe ? recipe.time : information.time
+    }
   })
 
   const submit = async data => {
@@ -66,7 +66,7 @@ const Step1 = ({ recipe }) => {
           options={[
             { value: 'Standard', text: 'Standard' },
             { value: 'Inverted', text: 'Inverted' },
-            { value: 'Other', text: 'Other' },
+            { value: 'Other', text: 'Other' }
           ]}
         />
         <Stack isInline={useBreakpointValue({ base: false, lg: true })}>
@@ -87,7 +87,7 @@ const Step1 = ({ recipe }) => {
               { value: 'Fine', text: 'Fine' },
               { value: 'Medium', text: 'Medium' },
               { value: 'Coarse', text: 'Coarse' },
-              { value: 'Very Coarse', text: 'Very Coarse' },
+              { value: 'Very Coarse', text: 'Very Coarse' }
             ]}
           />
         </Stack>
