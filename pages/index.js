@@ -1,6 +1,6 @@
 import { Divider, Heading, Spinner, Stack, Text } from '@chakra-ui/react'
 import { Layout } from '@components/Layout'
-import { Recipes } from '@components/Recipe'
+import { Recipes } from '@components/Feed'
 import { getAllRecipes } from '@utils/api'
 import { useQuery } from 'react-query'
 
