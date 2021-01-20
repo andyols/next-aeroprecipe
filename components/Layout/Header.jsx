@@ -2,12 +2,11 @@ import { AddIcon } from '@chakra-ui/icons'
 import {
   Button,
   Flex,
-  Link as ChakraLink,
+  Link,
   Spacer,
   Switch,
   useColorMode
 } from '@chakra-ui/react'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const Header = props => {
@@ -15,24 +14,21 @@ const Header = props => {
   const { colorMode, toggleColorMode } = useColorMode()
   return (
     <Flex w='100%' py={3} px={6} borderBottom='1px' as='header' {...props}>
-      <Link href='/'>
-        <ChakraLink fontSize='xl' fontWeight='medium'>
-          AeroPrecipe
-        </ChakraLink>
+      <Link fontSize='xl' fontWeight='medium' onClick={() => router.push('/')}>
+        AeroPrecipe
       </Link>
       <Spacer />
       <Flex align='center'>
-        <Link href='/recipe/create/step1'>
-          <Button
-            colorScheme='teal'
-            size='sm'
-            rightIcon={<AddIcon />}
-            onMouseDown={e => e.preventDefault()}
-            hidden={router.pathname.includes('create')}
-          >
-            New Recipe
-          </Button>
-        </Link>
+        <Button
+          colorScheme='teal'
+          size='sm'
+          rightIcon={<AddIcon />}
+          onMouseDown={e => e.preventDefault()}
+          onClick={() => router.push('/recipe/create/step1')}
+          hidden={router.pathname.includes('create')}
+        >
+          New Recipe
+        </Button>
 
         <Switch
           pl={4}

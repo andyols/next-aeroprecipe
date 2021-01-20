@@ -11,9 +11,9 @@ const recipeSlice = createSlice({
       grind: 'Medium',
       water: 200,
       temperature: 98,
-      time: 120,
+      time: 120
     },
-    instructions: [''],
+    instructions: ['']
   },
   reducers: {
     saveInformation: (state, action) => {
@@ -27,8 +27,8 @@ const recipeSlice = createSlice({
     },
     removeInstruction: (state, action) => {
       state.instructions.pop()
-    },
-  },
+    }
+  }
 })
 
 export const recipeReducer = recipeSlice.reducer
@@ -37,5 +37,5 @@ export const {
   saveInformation,
   saveInstructions,
   addInstruction,
-  removeInstruction,
+  removeInstruction
 } = recipeSlice.actions

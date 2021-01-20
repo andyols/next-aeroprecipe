@@ -1,7 +1,6 @@
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 import { Button, Stack, useBreakpointValue } from '@chakra-ui/react'
 import { yupResolver } from '@hookform/resolvers/yup'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
@@ -36,7 +35,7 @@ const Step1 = ({ recipe }) => {
     }
   })
 
-  const submit = async data => {
+  const submit = data => {
     dispatch(saveInformation(data))
     router.push('step2')
   }
@@ -122,11 +121,13 @@ const Step1 = ({ recipe }) => {
           error={errors.time}
         />
         <Stack isInline pt={2} justify='space-between'>
-          <Link href='/'>
-            <Button w='40%' leftIcon={<ArrowBackIcon />}>
-              Back
-            </Button>
-          </Link>
+          <Button
+            w='40%'
+            leftIcon={<ArrowBackIcon />}
+            onClick={() => router.push('/')}
+          >
+            Back
+          </Button>
           <Button
             w='40%'
             colorScheme='green'

@@ -18,10 +18,11 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 import { deleteRecipe } from '@utils/api'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useMutation, useQueryClient } from 'react-query'
 
 const Recipe = ({ recipe }) => {
+  const router = useRouter()
   const queryCache = useQueryClient()
   const subtleText = useColorModeValue('gray.600', 'gray.400')
 
@@ -66,11 +67,12 @@ const Recipe = ({ recipe }) => {
             isLoading={isLoading}
           />
           <MenuList>
-            <Link href={`/recipe/edit/${id}`}>
-              <MenuItem icon={<EditIcon w={5} h={5} />}>
-                <Text>Edit</Text>
-              </MenuItem>
-            </Link>
+            <MenuItem
+              icon={<EditIcon w={5} h={5} />}
+              onClick={() => router.push(`/recipe/edit/${id}`)}
+            >
+              <Text>Edit</Text>
+            </MenuItem>
             <MenuItem icon={<DeleteIcon w={5} h={5} />} onClick={handleDelete}>
               Delete
             </MenuItem>
@@ -95,17 +97,16 @@ const Recipe = ({ recipe }) => {
           {time}s ⏱️
         </Tag>
       </Flex>
-      <Link href={`/recipe/${id}`}>
-        <Button
-          mt={3}
-          variant='link'
-          colorScheme='teal'
-          rightIcon={<ArrowForwardIcon />}
-          onMouseDown={e => e.preventDefault()}
-        >
-          Go to Recipe
-        </Button>
-      </Link>
+      <Button
+        mt={3}
+        variant='link'
+        colorScheme='teal'
+        rightIcon={<ArrowForwardIcon />}
+        onClick={() => router.push(`/recipe/${id}`)}
+        onMouseDown={e => e.preventDefault()}
+      >
+        Go to Recipe
+      </Button>
     </Box>
   )
 }

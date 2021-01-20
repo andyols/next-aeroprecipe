@@ -1,8 +1,9 @@
 import { Box, Link, Stack, Text, useColorModeValue } from '@chakra-ui/react'
-import { Link as NextLink } from 'next/link'
+import { useRouter } from 'next/router'
 import { Recipe } from '.'
 
 const Recipes = ({ recipes }) => {
+  const router = useRouter()
   const bg = useColorModeValue('gray.50', 'gray.700')
   const subtleText = useColorModeValue('gray.700', 'gray.300')
   return recipes ? (
@@ -19,9 +20,9 @@ const Recipes = ({ recipes }) => {
         Well, this is awkward... thered are no recipes the moment. Maybe you could
         fix that by clicking{' '}
         <Link
-          as={NextLink}
           color='teal.300'
           href='/recipe/create'
+          onClick={() => router.push('recipe/create/step1')}
           onMouseDown={e => e.preventDefault()}
         >
           here!
