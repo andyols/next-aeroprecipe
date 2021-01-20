@@ -3,11 +3,12 @@ import { Layout } from '@components/Layout'
 import { q_findRecipe } from '@utils/queries'
 
 export default function Page({ recipe }) {
+  console.log('📝 ~ file: [id].js ~ line 6 ~ recipe', recipe)
   return (
-    <Layout title={recipe.title} align='center' textAlign='center'>
+    <Layout title={recipe.information.title} align='center' textAlign='center'>
       <Stack spacing={2}>
-        <Heading>{recipe.title}</Heading>
-        <Text pb={3}>{recipe.creator}</Text>
+        <Heading>{recipe.information.title}</Heading>
+        <Text pb={3}>{recipe.information.creator}</Text>
       </Stack>
     </Layout>
   )

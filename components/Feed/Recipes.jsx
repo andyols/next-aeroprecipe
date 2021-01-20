@@ -6,7 +6,7 @@ const Recipes = ({ recipes }) => {
   const router = useRouter()
   const bg = useColorModeValue('gray.50', 'gray.700')
   const subtleText = useColorModeValue('gray.700', 'gray.300')
-  return recipes ? (
+  return recipes?.length > 0 ? (
     <Stack>
       {recipes.map(r => (
         <Box bg={bg} borderRadius='md' boxShadow='base' key={r.data.id}>
@@ -21,7 +21,6 @@ const Recipes = ({ recipes }) => {
         fix that by clicking{' '}
         <Link
           color='teal.300'
-          href='/recipe/create'
           onClick={() => router.push('recipe/create/step1')}
           onMouseDown={e => e.preventDefault()}
         >

@@ -29,7 +29,6 @@ const Recipe = ({ recipe }) => {
   const { mutateAsync, isLoading } = useMutation(deleteRecipe)
 
   const {
-    id,
     title,
     creator,
     method,
@@ -38,10 +37,10 @@ const Recipe = ({ recipe }) => {
     water,
     temperature,
     time
-  } = recipe
+  } = recipe.information
 
   const handleDelete = async () => {
-    await mutateAsync(id)
+    await mutateAsync(recipe.id)
     queryCache.invalidateQueries('recipes')
   }
 
@@ -69,7 +68,7 @@ const Recipe = ({ recipe }) => {
           <MenuList>
             <MenuItem
               icon={<EditIcon w={5} h={5} />}
-              onClick={() => router.push(`/recipe/edit/${id}`)}
+              onClick={() => router.push(`/recipe/edit/${recipe.id}`)}
             >
               <Text>Edit</Text>
             </MenuItem>
@@ -102,7 +101,7 @@ const Recipe = ({ recipe }) => {
         variant='link'
         colorScheme='teal'
         rightIcon={<ArrowForwardIcon />}
-        onClick={() => router.push(`/recipe/${id}`)}
+        onClick={() => router.push(`/recipe/${recipe.id}`)}
         onMouseDown={e => e.preventDefault()}
       >
         Go to Recipe
