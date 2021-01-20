@@ -1,20 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const initialState = {
+  information: {
+    title: '',
+    creator: '',
+    method: 'Standard',
+    coffee: 15,
+    grind: 'Medium',
+    water: 200,
+    temperature: 98,
+    time: 120
+  },
+  instructions: ['']
+}
+
 const recipeSlice = createSlice({
   name: 'recipes',
-  initialState: {
-    information: {
-      title: '',
-      creator: '',
-      method: 'Standard',
-      coffee: 15,
-      grind: 'Medium',
-      water: 200,
-      temperature: 98,
-      time: 120
-    },
-    instructions: ['']
-  },
+  initialState,
   reducers: {
     saveInformation: (state, action) => {
       state.information = action.payload
@@ -27,7 +29,8 @@ const recipeSlice = createSlice({
     },
     removeInstruction: (state, action) => {
       state.instructions.pop()
-    }
+    },
+    resetRecipe: () => initialState
   }
 })
 
@@ -37,5 +40,6 @@ export const {
   saveInformation,
   saveInstructions,
   addInstruction,
-  removeInstruction
+  removeInstruction,
+  resetRecipe
 } = recipeSlice.actions

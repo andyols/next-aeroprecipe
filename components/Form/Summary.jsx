@@ -28,30 +28,28 @@ import {
   MdPerson,
   MdRefresh
 } from 'react-icons/md'
-import { useQueryClient } from 'react-query'
-import { useSelector } from 'react-redux'
+import { useQueryClient, useMutation } from 'react-query'
+import { useSelector, useDispatch } from 'react-redux'
+import { resetRecipe } from './reduxSlice'
+import { createRecipe, updateRecipe } from '@utils/api'
 
 const Summary = () => {
+  const dispatch = useDispatch()
   const router = useRouter()
   const queryCache = useQueryClient()
   const recipe = useSelector(state => state.recipe)
   const bg = useColorModeValue('gray.50', 'gray.700')
 
-  /**
-   * TODO: restructure backend to match what the frontend will submit
-   *       now that the recipe data is more complex with the introduction
-   *       of recipe instructions and redux state management
-   */
-  // const create = useMutation(createRecipe)
-  // const update = useMutation(updateRecipe)
-  // const isLoading = create.isLoading || update.isLoading
-  // const submit = async data => {
-  //   props.recipe
-  //     ? await update.mutateAsync({ ...data, id: recipe.id })
-  //     : await create.mutateAsync(data)
-  //   queryCache.invalidateQueries('recipes')
-  //   router.push('/')
-  // }
+  const create = useMutation(createRecipe)
+  const update = useMutation(updateRecipe)
+  const isLoading = create.isLoading || update.isLoading
+
+  const submit = async () => {
+    await create.mutateAsync(recipe)
+    queryCache.invalidateQueries('recipes')
+    dispatch(resetRecipe())
+    router.push('/')
+  }
 
   return (
     <Box bg={bg} p={3} boxShadow='base' borderRadius='md'>
@@ -151,7 +149,12 @@ const Summary = () => {
           >
             Back
           </Button>
-          <Button w='40%' colorScheme='green' type='submit'>
+          <Button
+            w='40%'
+            colorScheme='green'
+            onClick={submit}
+            isLoading={isLoading}
+          >
             Create!
           </Button>
         </Stack>
