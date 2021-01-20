@@ -4,28 +4,10 @@ export default async (req, res) => {
   if (req.method !== 'POST')
     return res.status(405).json({ msg: 'Method not allowed' })
 
-  const {
-    title,
-    creator,
-    method,
-    coffee,
-    grind,
-    water,
-    temperature,
-    time,
-  } = req.body
+  const { information, instructions } = req.body
 
   try {
-    const { data } = await q_createRecipe({
-      title,
-      creator,
-      method,
-      coffee,
-      grind,
-      water,
-      temperature,
-      time,
-    })
+    const { data } = await q_createRecipe({ information, instructions })
     return res.status(200).json(data)
   } catch (err) {
     console.error(err)
